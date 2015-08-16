@@ -64,15 +64,20 @@ class birdHomeViewController: UIViewController {
         takePhotoButton.backgroundColor = UIColor.redColor();
         takePhotoButton.layer.masksToBounds = true
         takePhotoButton.setTitle("撮影", forState: .Normal)
+        takePhotoButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        takePhotoButton.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
         takePhotoButton.layer.cornerRadius = 20.0
         takePhotoButton.layer.position = CGPoint(x: self.view.bounds.width/2,
                                         y: self.view.bounds.height - takePhotoButton.frame.size.height - tabbarHeight!)
         takePhotoButton.addTarget(self, action: "didPushTakePhotoButton:", forControlEvents: .TouchUpInside)
         
+        
         retakePhotoButton = UIButton(frame: CGRectMake(0,0,120,50))
         retakePhotoButton.backgroundColor = UIColor.blueColor();
         retakePhotoButton.layer.masksToBounds = true
         retakePhotoButton.setTitle("やり直す", forState: .Normal)
+        retakePhotoButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        retakePhotoButton.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
         retakePhotoButton.layer.cornerRadius = 20.0
         retakePhotoButton.layer.position = CGPoint(x: retakePhotoButton.frame.size.width/2+15,
                                         y: self.view.bounds.height - takePhotoButton.frame.size.height - tabbarHeight!)
@@ -82,6 +87,8 @@ class birdHomeViewController: UIViewController {
         decidePhotoButton.backgroundColor = UIColor.greenColor();
         decidePhotoButton.layer.masksToBounds = true
         decidePhotoButton.setTitle("決定", forState: .Normal)
+        decidePhotoButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        decidePhotoButton.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
         decidePhotoButton.layer.cornerRadius = 20.0
         decidePhotoButton.layer.position = CGPoint(x: self.view.frame.size.width - decidePhotoButton.frame.size.width/2-15,
                                         y: self.view.bounds.height - takePhotoButton.frame.size.height - tabbarHeight!)
