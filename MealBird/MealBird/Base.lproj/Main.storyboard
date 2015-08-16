@@ -253,7 +253,20 @@
                     <view key="view" contentMode="scaleToFill" id="BQM-qF-tl7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="botton_inko.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fic-pR-RHy">
+                                <rect key="frame" x="135" y="259" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Tg2-E8-6p5"/>
+                                    <constraint firstAttribute="width" constant="50" id="Yq5-8Q-kjJ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Fic-pR-RHy" secondAttribute="centerY" id="3El-SR-Por"/>
+                            <constraint firstAttribute="centerX" secondItem="Fic-pR-RHy" secondAttribute="centerX" id="AwZ-Ew-PcI"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="図鑑" id="7KA-mY-Z5i"/>
                 </viewController>
@@ -351,6 +364,9 @@
             <point key="canvasLocation" x="333" y="342"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="botton_inko.png" width="50" height="50"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
