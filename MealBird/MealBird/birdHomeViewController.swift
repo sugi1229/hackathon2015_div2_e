@@ -19,7 +19,10 @@ class birdHomeViewController: UIViewController {
     var takePhotoButton : UIButton!
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
+    var cameraMessageLabel : UILabel!
+    
     var birdImageView : UIImageView!
+    @IBOutlet weak var cameraButton: UIButton!
     
     private var myImageView: UIImageView!
     private var myImage: UIImage!
@@ -34,13 +37,26 @@ class birdHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        //カメラ
-        self.setupCammera()
-        self.setupTakePhotoButtons()
-        self.hiddenPhotoPreview()
-        self.showCameraView()
+        setupCammera()
+        setupTakePhotoButtons()
+        hiddenPhotoPreview()
+        showCameraView()
+        setupCameraMessageLabel()
         
-        //上のメッセージ
+        setupMessageLabel()
+        
+        if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+            print("adultBirds")
+            println(adultBirds.last)
+        } else {
+            let n = (Int)(arc4random() % 5)
+            let adultBirds : [Int] = [n]
+            userDefault.setObject(adultBirds, forKey: "adultBirds")
+        }
+
+    }
+
+    func setupMessageLabel() {
         if let count = userDefault.objectForKey("count") as? Int {
             switch count {
             case 0,1,2:
@@ -66,7 +82,7 @@ class birdHomeViewController: UIViewController {
         }
 
     }
-
+    
     func setupBird() {
         let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
         birdImageView = UIImageView(frame: CGRectMake(self.view.frame.width/2, self.view.frame.size.height-tabbarHeight! - 52, 50, 50))
@@ -116,28 +132,17 @@ class birdHomeViewController: UIViewController {
         }
     }
 
-    @IBAction func didPushGohanButton(sender: AnyObject) {
-        //count
-        var count = 0
+    func didAddPhoto() {
+        var count = 1
         if let prevCount = userDefault.objectForKey("count") as? Int {
             count = (prevCount + 1) % 10
         }
         userDefault.setObject(count, forKey: "count")
         
-        //メッセージ
-        switch count {
-        case 0,1,2:
-            messageLabel.text = "生まれるまで" + String(3 - count) + "食"
-        case 3,4,5,6,7:
-            messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
-        case 8,9:
-            messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
-        default:
-            break
-        }
         
         //とり
         birdImageView.image = getBirdImage(count)
+        setupMessageLabel()
         
         if count == 0 {
             setupAdultBird()
@@ -186,6 +191,10 @@ class birdHomeViewController: UIViewController {
     }
 
 
+    @IBAction func didPushCameraButton(sender: AnyObject) {
+        hiddenHomeView()
+        showCameraView()
+    }
 
 //Camera
     func setupCammera() {
@@ -251,6 +260,51 @@ class birdHomeViewController: UIViewController {
                                         y: self.view.bounds.height - takePhotoButton.frame.size.height - tabbarHeight!)
         decidePhotoButton.addTarget(self, action: "didPushDesidePhotoButton:", forControlEvents: .TouchUpInside)
     }
+    
+    func setupCameraMessageLabel() {
+        cameraMessageLabel = UILabel(frame: CGRectMake(10, 10, self.view.frame.size.width - 20, 50))
+        cameraMessageLabel.backgroundColor = UIColor.lightTextColor()
+        cameraMessageLabel.layer.masksToBounds = true
+        cameraMessageLabel.layer.cornerRadius = 10.0
+        cameraMessageLabel.layer.position = CGPoint(x: self.view.frame.size.width/2, y: 50)
+        cameraMessageLabel.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(cameraMessageLabel)
+        
+        let asaTime = userDefault.objectForKey("asa") as! String
+        let hiruTime = userDefault.objectForKey("hiru") as! String
+        let yoruTime = userDefault.objectForKey("yoru") as! String
+        
+        if isMealTime(asaTime) {
+             cameraMessageLabel.text = "いまは朝食の時間です"
+        } else if isMealTime(hiruTime) {
+             cameraMessageLabel.text = "いまは昼食の時間です"
+        } else if isMealTime(yoruTime) {
+             cameraMessageLabel.text = "いまは夕食の時間です"
+        } else {
+             cameraMessageLabel.text = "いまはごはんの時間ではありません"
+        }
+    }
+    
+    func isMealTime(time:String) -> Bool {
+        let times = time.componentsSeparatedByString("~ ")
+        let starts = times[0].componentsSeparatedByString(":")
+        let ends = times[1].componentsSeparatedByString(":")
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        dateFormatter.dateFormat = "HH"
+        let now = dateFormatter.stringFromDate(NSDate())
+        
+        let startHour = starts[0].toInt()!
+        let endHour = ends[0].toInt()!
+        let nowHour = now.toInt()!
+       
+        if startHour <= nowHour && nowHour < endHour {
+            return true
+        } else {
+            return false
+        }
+    }
 
     func didPushTakePhotoButton(sender: AnyObject) {
         
@@ -295,6 +349,15 @@ class birdHomeViewController: UIViewController {
         photoPreviewImageView.hidden = false
         photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
         messageLabel.hidden = false
+        cameraButton.hidden = false
+    }
+    
+    func hiddenHomeView() {
+        photoPreviewImageView.hidden = true
+        photoPreviewImageView.image = nil
+        messageLabel.hidden = true
+        cameraButton.hidden = true
+        birdImageView.removeFromSuperview()
     }
     
     func didPushRetakePhotoButton(sender: AnyObject) {
@@ -308,9 +371,17 @@ class birdHomeViewController: UIViewController {
         photo.image = NSData(data: UIImagePNGRepresentation(image))
         photo.date = NSDate()
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
+        cameraMessageLabel.hidden = true
         hiddenPhotoPreview()
         setupHomeView()
         setupBird()
+        
+        let asaTime = userDefault.objectForKey("asa") as! String
+        let hiruTime = userDefault.objectForKey("hiru") as! String
+        let yoruTime = userDefault.objectForKey("yoru") as! String
+        if isMealTime(asaTime) || isMealTime(hiruTime) || isMealTime(yoruTime){
+            didAddPhoto()
+        }
     }
     
     func checkData() {
