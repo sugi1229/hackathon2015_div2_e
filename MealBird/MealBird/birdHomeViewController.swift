@@ -145,6 +145,7 @@ class birdHomeViewController: UIViewController {
         photo.image = NSData(data: UIImagePNGRepresentation(image))
         photo.date = NSDate()
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
+        hiddenPhotoPreview()
         checkData()
     }
     
