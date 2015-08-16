@@ -161,7 +161,7 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
             //選択した内容の保存
             ud.setObject(asaValue[asaSelect], forKey: "asa")
             ud.setObject(hiruValue[hiruSelect], forKey: "hiru")
-            ud.setObject(hiruValue[yoruSelect], forKey: "yoru")
+            ud.setObject(yoruValue[yoruSelect], forKey: "yoru")
             
             self.performSegueWithIdentifier("toMainVC", sender: nil)
         }

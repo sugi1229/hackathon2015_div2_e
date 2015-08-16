@@ -19,6 +19,8 @@ class birdHomeViewController: UIViewController {
     var takePhotoButton : UIButton!
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
+    var cameraMessageLabel : UILabel!
+    
     var birdImageView : UIImageView!
     
     let userDefault = NSUserDefaults.standardUserDefaults()
@@ -33,6 +35,7 @@ class birdHomeViewController: UIViewController {
         setupTakePhotoButtons()
         hiddenPhotoPreview()
         showCameraView()
+        setupCameraMessageLabel()
         
         setupMessageLabel()
         
@@ -198,6 +201,52 @@ class birdHomeViewController: UIViewController {
                                         y: self.view.bounds.height - takePhotoButton.frame.size.height - tabbarHeight!)
         decidePhotoButton.addTarget(self, action: "didPushDesidePhotoButton:", forControlEvents: .TouchUpInside)
     }
+    
+    func setupCameraMessageLabel() {
+        cameraMessageLabel = UILabel(frame: CGRectMake(10, 10, self.view.frame.size.width - 20, 50))
+        cameraMessageLabel.backgroundColor = UIColor.lightTextColor()
+        cameraMessageLabel.layer.masksToBounds = true
+        cameraMessageLabel.layer.cornerRadius = 10.0
+        cameraMessageLabel.layer.position = CGPoint(x: self.view.frame.size.width/2, y: 50)
+        cameraMessageLabel.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(cameraMessageLabel)
+        
+        let asaTime = userDefault.objectForKey("asa") as! String
+        let hiruTime = userDefault.objectForKey("hiru") as! String
+        let yoruTime = userDefault.objectForKey("yoru") as! String
+        
+        
+        if isMealTime(asaTime) {
+             cameraMessageLabel.text = "いまは朝食の時間です"
+        } else if isMealTime(hiruTime) {
+             cameraMessageLabel.text = "いまは昼食の時間です"
+        } else if isMealTime(yoruTime) {
+             cameraMessageLabel.text = "いまは夕食の時間です"
+        } else {
+             cameraMessageLabel.text = "いまはごはんの時間ではありません"
+        }
+    }
+    
+    func isMealTime(time:String) -> Bool {
+        let times = time.componentsSeparatedByString("~ ")
+        let starts = times[0].componentsSeparatedByString(":")
+        let ends = times[1].componentsSeparatedByString(":")
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        dateFormatter.dateFormat = "HH"
+        let now = dateFormatter.stringFromDate(NSDate())
+        
+        let startHour = starts[0].toInt()!
+        let endHour = ends[0].toInt()!
+        let nowHour = now.toInt()!
+       
+        if startHour <= nowHour && nowHour < endHour {
+            return true
+        } else {
+            return false
+        }
+    }
 
     func didPushTakePhotoButton(sender: AnyObject) {
         
@@ -255,6 +304,7 @@ class birdHomeViewController: UIViewController {
         photo.image = NSData(data: UIImagePNGRepresentation(image))
         photo.date = NSDate()
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
+        cameraMessageLabel.hidden = true
         hiddenPhotoPreview()
         setupHomeView()
         setupBird()
