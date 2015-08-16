@@ -84,6 +84,9 @@
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapYouView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gGF-YI-RO6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,6 +131,9 @@
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapHiruView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TvJ-tz-DSY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,13 +175,13 @@
                         <barButtonItem key="rightBarButtonItem" title="登録" id="X13-bE-7rm"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="asatime" destination="CwK-yP-N2H" id="aOq-cd-1x6"/>
-                        <outlet property="asaview" destination="Jxz-pd-s0K" id="VFU-hi-NhM"/>
-                        <outlet property="hirutime" destination="SvO-1z-mkE" id="Xqb-oU-0PC"/>
-                        <outlet property="hiruview" destination="XyB-w0-RaJ" id="0jd-it-A7B"/>
-                        <outlet property="pickerview" destination="yfC-Ge-QIv" id="PtX-Rr-VzV"/>
-                        <outlet property="yorutime" destination="HIm-8B-hZH" id="5Pj-ul-NaL"/>
-                        <outlet property="yoruview" destination="33L-zP-csD" id="HpW-Ww-72M"/>
+                        <outlet property="asaTime" destination="CwK-yP-N2H" id="rUE-No-BLu"/>
+                        <outlet property="asaView" destination="C4s-Fa-fRB" id="9zB-GK-VSi"/>
+                        <outlet property="hiruTime" destination="SvO-1z-mkE" id="KQ8-Fe-arY"/>
+                        <outlet property="hiruView" destination="eAU-pX-zBp" id="xXA-fz-tbp"/>
+                        <outlet property="pickerView" destination="yfC-Ge-QIv" id="g2f-uz-m2H"/>
+                        <outlet property="yoruTime" destination="HIm-8B-hZH" id="r6W-1k-2sK"/>
+                        <outlet property="yoruView" destination="Xm7-sv-eDp" id="agb-jt-RFd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
