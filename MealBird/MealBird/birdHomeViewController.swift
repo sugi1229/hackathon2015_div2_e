@@ -19,6 +19,7 @@ class birdHomeViewController: UIViewController {
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
     
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var photoPreviewImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -134,6 +135,12 @@ class birdHomeViewController: UIViewController {
         decidePhotoButton.removeFromSuperview()
     }
     
+    func setupHomeView() {
+        photoPreviewImageView.hidden = false
+        photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
+        messageLabel.hidden = false
+    }
+    
     func didPushRetakePhotoButton(sender: AnyObject) {
         hiddenPhotoPreview()
         showCameraView()
@@ -146,8 +153,7 @@ class birdHomeViewController: UIViewController {
         photo.date = NSDate()
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
         hiddenPhotoPreview()
-        photoPreviewImageView.hidden = false
-        photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
+        setupHomeView()
     }
     
     func checkData() {
