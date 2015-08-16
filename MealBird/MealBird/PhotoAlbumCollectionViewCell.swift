@@ -11,4 +11,7 @@ import UIKit
 class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    
+    override func awakeFromNib() {
+    }
 }

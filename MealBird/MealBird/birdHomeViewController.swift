@@ -22,6 +22,7 @@ class birdHomeViewController: UIViewController {
     var cameraMessageLabel : UILabel!
     
     var birdImageView : UIImageView!
+    @IBOutlet weak var cameraButton: UIButton!
     
     let userDefault = NSUserDefaults.standardUserDefaults()
     
@@ -113,8 +114,8 @@ class birdHomeViewController: UIViewController {
         }
     }
 
-    @IBAction func didPushGohanButton(sender: AnyObject) {
-        var count = 0
+    func didAddPhoto() {
+        var count = 1
         if let prevCount = userDefault.objectForKey("count") as? Int {
             count = (prevCount + 1) % 10
         }
@@ -136,6 +137,10 @@ class birdHomeViewController: UIViewController {
 
 
 
+    @IBAction func didPushCameraButton(sender: AnyObject) {
+        hiddenHomeView()
+        showCameraView()
+    }
 
 //Camera
     func setupCammera() {
@@ -215,7 +220,6 @@ class birdHomeViewController: UIViewController {
         let hiruTime = userDefault.objectForKey("hiru") as! String
         let yoruTime = userDefault.objectForKey("yoru") as! String
         
-        
         if isMealTime(asaTime) {
              cameraMessageLabel.text = "いまは朝食の時間です"
         } else if isMealTime(hiruTime) {
@@ -291,6 +295,15 @@ class birdHomeViewController: UIViewController {
         photoPreviewImageView.hidden = false
         photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
         messageLabel.hidden = false
+        cameraButton.hidden = false
+    }
+    
+    func hiddenHomeView() {
+        photoPreviewImageView.hidden = true
+        photoPreviewImageView.image = nil
+        messageLabel.hidden = true
+        cameraButton.hidden = true
+        birdImageView.removeFromSuperview()
     }
     
     func didPushRetakePhotoButton(sender: AnyObject) {
@@ -308,6 +321,13 @@ class birdHomeViewController: UIViewController {
         hiddenPhotoPreview()
         setupHomeView()
         setupBird()
+        
+        let asaTime = userDefault.objectForKey("asa") as! String
+        let hiruTime = userDefault.objectForKey("hiru") as! String
+        let yoruTime = userDefault.objectForKey("yoru") as! String
+        if isMealTime(asaTime) || isMealTime(hiruTime) || isMealTime(yoruTime){
+            didAddPhoto()
+        }
     }
     
     func checkData() {

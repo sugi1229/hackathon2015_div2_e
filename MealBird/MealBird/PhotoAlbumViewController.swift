@@ -32,6 +32,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         if let photo = photos[indexPath.item] as? Photo {
             let image = UIImage(data: photo.image)
             cell.imageView.image = image
+            cell.imageView.transform = CGAffineTransformMakeRotation(CGFloat(90.0 * M_PI / 180))
+            cell.backgroundColor = UIColor.lightTextColor()
         }
         return cell
     }

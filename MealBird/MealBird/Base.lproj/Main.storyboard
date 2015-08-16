@@ -238,38 +238,37 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ELD-08-cGT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E84-7L-3Fg">
+                                <rect key="frame" x="20" y="26" width="45" height="30"/>
+                                <state key="normal" title="カメラ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPushCameraButton:" destination="5gS-Tq-I8I" eventType="touchUpInside" id="3D3-OB-Xhe"/>
+                                </connections>
+                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次のステップまであと３食" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHe-I5-lUL">
-                                <rect key="frame" x="58" y="30" width="204" height="21"/>
+                                <rect key="frame" x="96" y="30" width="204" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muw-nz-lJY">
-                                <rect key="frame" x="137" y="269" width="45" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="ごはん">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPushGohanButton:" destination="5gS-Tq-I8I" eventType="touchUpInside" id="V8E-zW-UIh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="yHe-I5-lUL" secondAttribute="centerX" id="2yW-gS-HiZ"/>
+                            <constraint firstItem="E84-7L-3Fg" firstAttribute="leading" secondItem="Oh2-cm-oXw" secondAttribute="leading" constant="20" id="1UA-PE-QCs"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ELD-08-cGT" secondAttribute="bottom" id="3yq-sb-44T"/>
                             <constraint firstItem="yHe-I5-lUL" firstAttribute="top" secondItem="WxN-ks-14T" secondAttribute="bottom" constant="10" id="8dA-OC-9xG"/>
                             <constraint firstAttribute="trailing" secondItem="ELD-08-cGT" secondAttribute="trailing" id="ENo-E0-Te9"/>
-                            <constraint firstAttribute="centerY" secondItem="muw-nz-lJY" secondAttribute="centerY" id="WKP-Tn-Bwn"/>
                             <constraint firstItem="ELD-08-cGT" firstAttribute="leading" secondItem="Oh2-cm-oXw" secondAttribute="leading" id="YLT-wQ-Wxe"/>
-                            <constraint firstAttribute="centerX" secondItem="muw-nz-lJY" secondAttribute="centerX" id="cnJ-kd-cMW"/>
                             <constraint firstItem="ELD-08-cGT" firstAttribute="top" secondItem="Oh2-cm-oXw" secondAttribute="topMargin" id="ljO-Q6-q19"/>
+                            <constraint firstItem="yHe-I5-lUL" firstAttribute="centerY" secondItem="E84-7L-3Fg" secondAttribute="centerY" id="mnk-4k-UkM"/>
+                            <constraint firstAttribute="trailing" secondItem="yHe-I5-lUL" secondAttribute="trailing" constant="20" id="ws9-Tu-x7l"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="鳥" id="4T4-re-27b"/>
                     <connections>
+                        <outlet property="cameraButton" destination="E84-7L-3Fg" id="ZHo-jX-kKw"/>
                         <outlet property="messageLabel" destination="yHe-I5-lUL" id="NPh-E4-aiN"/>
                         <outlet property="photoPreviewImageView" destination="ELD-08-cGT" id="bPb-Od-shv"/>
                     </connections>
