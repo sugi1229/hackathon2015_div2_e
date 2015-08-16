@@ -11,6 +11,8 @@
 		955DD195D6923B3FF9454E21 /* libPods-MealBird.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */; };
 		E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */; };
 		E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57311B8090DD008A8C11 /* TabBarController.swift */; };
+		E9BA57371B809CF5008A8C11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57351B809CF5008A8C11 /* Model.xcdatamodeld */; };
+		E9BA573B1B809D86008A8C11 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BA573A1B809D86008A8C11 /* Photo.m */; };
 		E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */; };
 		E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D11B805C6C003ED714 /* Main.storyboard */; };
 		E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D41B805C6C003ED714 /* Images.xcassets */; };
@@ -35,6 +37,10 @@
 		E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.release.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.release.xcconfig"; sourceTree = "<group>"; };
 		E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = birdHomeViewController.swift; sourceTree = "<group>"; };
 		E9BA57311B8090DD008A8C11 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E9BA57341B809B69008A8C11 /* MealBird-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MealBird-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9BA57361B809CF5008A8C11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		E9BA57391B809D86008A8C11 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
+		E9BA573A1B809D86008A8C11 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
 		E9BB03C81B805C6C003ED714 /* MealBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03CC1B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +79,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E9BA57381B809D05008A8C11 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				E9BA57351B809CF5008A8C11 /* Model.xcdatamodeld */,
+				E9BA57391B809D86008A8C11 /* Photo.h */,
+				E9BA573A1B809D86008A8C11 /* Photo.m */,
+			);
+			name = DB;
+			sourceTree = "<group>";
+		};
 		E9BB03BF1B805C6C003ED714 = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +114,11 @@
 			children = (
 				E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */,
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
+				E9BA57341B809B69008A8C11 /* MealBird-Bridging-Header.h */,
 				8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */,
 				E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */,
 				E9BA57311B8090DD008A8C11 /* TabBarController.swift */,
+				E9BA57381B809D05008A8C11 /* DB */,
 				E9BB03D41B805C6C003ED714 /* Images.xcassets */,
 				E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */,
 				E9BB03CB1B805C6C003ED714 /* Supporting Files */,
@@ -277,8 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BA573B1B809D86008A8C11 /* Photo.m in Sources */,
 				8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */,
 				E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */,
+				E9BA57371B809CF5008A8C11 /* Model.xcdatamodeld in Sources */,
 				E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */,
 				E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */,
 			);
@@ -411,6 +431,7 @@
 				INFOPLIST_FILE = MealBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/minami/hackathon2015_div2_e/MealBird/MealBird/MealBird-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -422,6 +443,7 @@
 				INFOPLIST_FILE = MealBird/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/minami/hackathon2015_div2_e/MealBird/MealBird/MealBird-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -490,6 +512,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E9BA57351B809CF5008A8C11 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E9BA57361B809CF5008A8C11 /* Model.xcdatamodel */,
+			);
+			currentVersion = E9BA57361B809CF5008A8C11 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E9BB03C01B805C6C003ED714 /* Project object */;
 }
