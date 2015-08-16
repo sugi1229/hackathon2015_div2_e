@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
 class birdHomeViewController: UIViewController {
 
@@ -18,7 +19,11 @@ class birdHomeViewController: UIViewController {
     var takePhotoButton : UIButton!
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
+    var birdImageView : UIImageView!
     
+    let userDefault = NSUserDefaults.standardUserDefaults()
+    
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var photoPreviewImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -28,9 +33,112 @@ class birdHomeViewController: UIViewController {
         self.setupTakePhotoButtons()
         self.hiddenPhotoPreview()
         self.showCameraView()
+        
+        if let count = userDefault.objectForKey("count") as? Int {
+            switch count {
+            case 0,1,2:
+                messageLabel.text = "生まれるまで" + String(3 - count) + "食"
+            case 3,4,5,6,7:
+                messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
+            case 8,9:
+                messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
+            default:
+                break
+            }
+        }
+        
+        if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+            print("adultBirds")
+            println(adultBirds.last)
+        } else {
+            let n = (Int)(arc4random() % 5)
+            let adultBirds : [Int] = [n]
+            userDefault.setObject(adultBirds, forKey: "adultBirds")
+        }
+
+    }
+
+    func setupBird() {
+        let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
+        birdImageView = UIImageView(frame: CGRectMake(self.view.frame.width/2, self.view.frame.size.height-tabbarHeight! - 52, 50, 50))
+        birdImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        if let count = userDefault.objectForKey("count") as? Int {
+            birdImageView.image = getBird(count)
+        } else {
+            birdImageView.image = getBird(0)
+        }
+        self.view.addSubview(birdImageView)
+    }
+
+    func getBird(count: Int) -> UIImage {
+        switch count {
+            case 0:
+                return UIImage(named: "tamago0.png")!
+            case 1:
+                return UIImage(named: "tamago1.png")!
+            case 2:
+                return UIImage(named: "tamago2.png")!
+            case 3:
+                return UIImage(named: "hiyoko.png")!
+            case 4,5,6,7:
+                return UIImage(named: "hiyoko.png")!
+            case 8,9:
+            if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+                switch adultBirds.last! {
+                    case 0:
+                        return UIImage(named: "botton_inko.png")!
+                    case 1:
+                        return UIImage(named: "kozakura_inko.png")!
+                    case 2:
+                        return UIImage(named: "okame_inko.png")!
+                    case 3:
+                        return UIImage(named: "sekisei_inko.png")!
+                    case 4:
+                        return UIImage(named: "sekisei2_inko.png")!
+                    default:
+                        return UIImage(named: "botton_inko.png")!
+                    }
+                } else {
+                    return UIImage(named: "botton_inko.png")!
+                }
+            default:
+                return UIImage(named: "hiyoko.png")!
+        }
+    }
+
+    @IBAction func didPushGohanButton(sender: AnyObject) {
+        var count = 0
+        if let prevCount = userDefault.objectForKey("count") as? Int {
+            count = (prevCount + 1) % 10
+        }
+        userDefault.setObject(count, forKey: "count")
+        
+        switch count {
+        case 0,1,2:
+            messageLabel.text = "生まれるまで" + String(3 - count) + "食"
+        case 3,4,5,6,7:
+            messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
+        case 8,9:
+            messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
+        default:
+            break
+        }
+        birdImageView.image = getBird(count)
+        if count == 0 {
+            setupAdultBird()
+        }
+    }
+    
+    func setupAdultBird() {
+        if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+            
+        }
     }
 
 
+
+
+//Camera
     func setupCammera() {
         cameraSession = AVCaptureSession()
         
@@ -134,6 +242,12 @@ class birdHomeViewController: UIViewController {
         decidePhotoButton.removeFromSuperview()
     }
     
+    func setupHomeView() {
+        photoPreviewImageView.hidden = false
+        photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
+        messageLabel.hidden = false
+    }
+    
     func didPushRetakePhotoButton(sender: AnyObject) {
         hiddenPhotoPreview()
         showCameraView()
@@ -146,7 +260,8 @@ class birdHomeViewController: UIViewController {
         photo.date = NSDate()
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
         hiddenPhotoPreview()
-        checkData()
+        setupHomeView()
+        setupBird()
     }
     
     func checkData() {

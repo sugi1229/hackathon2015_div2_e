@@ -20,6 +20,12 @@
 		E9BA57481B80B9E2008A8C11 /* sekisei_inko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA57431B80B9E2008A8C11 /* sekisei_inko@2x.png */; };
 		E9BA57491B80B9E2008A8C11 /* sekisei2_inko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA57441B80B9E2008A8C11 /* sekisei2_inko@2x.png */; };
 		E9BA574B1B80BF3C008A8C11 /* PhotoAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA574A1B80BF3C008A8C11 /* PhotoAlbumCollectionViewCell.swift */; };
+		E9BA57531B80C8FA008A8C11 /* bg_hiru@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA57511B80C8FA008A8C11 /* bg_hiru@2x.png */; };
+		E9BA57541B80C8FA008A8C11 /* bg_yu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA57521B80C8FA008A8C11 /* bg_yu@2x.png */; };
+		E9BA57571B80CCDC008A8C11 /* hiyoko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA57551B80CCDC008A8C11 /* hiyoko@2x.png */; };
+		E9BA57621B80EA49008A8C11 /* tamago0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA575F1B80EA49008A8C11 /* tamago0@2x.png */; };
+		E9BA57631B80EA49008A8C11 /* tamago1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA57601B80EA49008A8C11 /* tamago1@2x.png */; };
+		E9BA57641B80EA49008A8C11 /* tamago2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9BA57611B80EA49008A8C11 /* tamago2@2x.png */; };
 		E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */; };
 		E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D11B805C6C003ED714 /* Main.storyboard */; };
 		E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D41B805C6C003ED714 /* Images.xcassets */; };
@@ -55,6 +61,12 @@
 		E9BA57431B80B9E2008A8C11 /* sekisei_inko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sekisei_inko@2x.png"; sourceTree = "<group>"; };
 		E9BA57441B80B9E2008A8C11 /* sekisei2_inko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sekisei2_inko@2x.png"; sourceTree = "<group>"; };
 		E9BA574A1B80BF3C008A8C11 /* PhotoAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9BA57511B80C8FA008A8C11 /* bg_hiru@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_hiru@2x.png"; sourceTree = "<group>"; };
+		E9BA57521B80C8FA008A8C11 /* bg_yu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_yu@2x.png"; sourceTree = "<group>"; };
+		E9BA57551B80CCDC008A8C11 /* hiyoko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hiyoko@2x.png"; sourceTree = "<group>"; };
+		E9BA575F1B80EA49008A8C11 /* tamago0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tamago0@2x.png"; sourceTree = "<group>"; };
+		E9BA57601B80EA49008A8C11 /* tamago1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tamago1@2x.png"; sourceTree = "<group>"; };
+		E9BA57611B80EA49008A8C11 /* tamago2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tamago2@2x.png"; sourceTree = "<group>"; };
 		E9BB03C81B805C6C003ED714 /* MealBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03CC1B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +100,12 @@
 		8406CF241B80B48D00468F87 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E9BA575F1B80EA49008A8C11 /* tamago0@2x.png */,
+				E9BA57601B80EA49008A8C11 /* tamago1@2x.png */,
+				E9BA57611B80EA49008A8C11 /* tamago2@2x.png */,
+				E9BA57551B80CCDC008A8C11 /* hiyoko@2x.png */,
+				E9BA57511B80C8FA008A8C11 /* bg_hiru@2x.png */,
+				E9BA57521B80C8FA008A8C11 /* bg_yu@2x.png */,
 				E9BA57401B80B9E2008A8C11 /* botton_inko@2x.png */,
 				E9BA57411B80B9E2008A8C11 /* kozakura_inko@2x.png */,
 				E9BA57421B80B9E2008A8C11 /* okame_inko@2x.png */,
@@ -280,14 +298,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BA57621B80EA49008A8C11 /* tamago0@2x.png in Resources */,
 				E9BA57451B80B9E2008A8C11 /* botton_inko@2x.png in Resources */,
+				E9BA57541B80C8FA008A8C11 /* bg_yu@2x.png in Resources */,
 				E9BA57461B80B9E2008A8C11 /* kozakura_inko@2x.png in Resources */,
 				E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */,
 				E9BA57481B80B9E2008A8C11 /* sekisei_inko@2x.png in Resources */,
+				E9BA57641B80EA49008A8C11 /* tamago2@2x.png in Resources */,
 				E9BA57471B80B9E2008A8C11 /* okame_inko@2x.png in Resources */,
 				E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */,
 				E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */,
+				E9BA57631B80EA49008A8C11 /* tamago1@2x.png in Resources */,
+				E9BA57571B80CCDC008A8C11 /* hiyoko@2x.png in Resources */,
 				E9BA57491B80B9E2008A8C11 /* sekisei2_inko@2x.png in Resources */,
+				E9BA57531B80C8FA008A8C11 /* bg_hiru@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
