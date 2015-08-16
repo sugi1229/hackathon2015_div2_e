@@ -10,13 +10,14 @@ import UIKit
 
 class InitialSettingViewController: UIViewController {
     
-    @IBOutlet var asaTime: UILabel?
-    @IBOutlet var hiruTime: UILabel?
-    @IBOutlet var yoruTime: UILabel?
-    @IBOutlet var pickerView: UIPickerView?
-    @IBOutlet var asaView: UIView?
-    @IBOutlet var hiruView: UIView?
-    @IBOutlet var yoruView: UIView?
+    @IBOutlet var asaTime: UILabel!
+    @IBOutlet var hiruTime: UILabel!
+    @IBOutlet var yoruTime: UILabel!
+    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet weak var asaView: UIButton!
+    @IBOutlet weak var hiruView: UIButton!
+    @IBOutlet weak var yoruView: UIButton!
+    
     
     private let asaValue: NSArray = ["4:00 ~ 6:00","4:30 ~ 6:30","5:00 ~ 7:00","5:30 ~ 7:30","6:00 ~ 8:00","6:30 ~ 8:30","7:00 ~ 9:00","7:30 ~ 9:30","8:00 ~ 10:00"]
     private let hiruValue: NSArray = ["10:00 ~ 12:00","10:30 ~ 12:30","11:00 ~ 13:00","11:30 ~ 13:30","12:00 ~ 14:00","12:30 ~ 14:30","13:00 ~ 15:00","13:30 ~ 15:30","14:00 ~ 16:00"]
@@ -37,10 +38,19 @@ class InitialSettingViewController: UIViewController {
         
     }
     
-    //asaview tap
+    //asaview touch
     @IBAction func didTapAsaView(sender: AnyObject) {
         
     }
+    
+    //hirugohan touch
+    @IBAction func didTapHiruView(sender: AnyObject) {
+    }
+    
+    //yorugohan touch
+    @IBAction func didTapYouView(sender: AnyObject) {
+    }
+    
     
     
 
