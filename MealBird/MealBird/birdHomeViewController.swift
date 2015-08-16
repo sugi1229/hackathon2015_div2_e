@@ -23,6 +23,7 @@ class birdHomeViewController: UIViewController {
     
     var birdImageView : UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
+    var mealPhoto : UIImageView!
     
     private var myImageView: UIImageView!
     private var myImage: UIImage!
@@ -53,7 +54,10 @@ class birdHomeViewController: UIViewController {
             let adultBirds : [Int] = [n]
             userDefault.setObject(adultBirds, forKey: "adultBirds")
         }
-
+        
+        mealPhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        mealPhoto.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        mealPhoto.contentMode = UIViewContentMode.ScaleAspectFill
     }
 
     func setupMessageLabel() {
@@ -85,7 +89,8 @@ class birdHomeViewController: UIViewController {
     
     func setupBird() {
         let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
-        birdImageView = UIImageView(frame: CGRectMake(self.view.frame.width/2, self.view.frame.size.height-tabbarHeight! - 52, 50, 50))
+        birdImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
+        birdImageView.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height - tabbarHeight! - birdImageView.frame.size.height/2)
         birdImageView.contentMode = UIViewContentMode.ScaleAspectFill
         if let count = userDefault.objectForKey("count") as? Int {
             birdImageView.image = getBirdImage(count)
@@ -96,7 +101,7 @@ class birdHomeViewController: UIViewController {
     }
 
     func getBirdImage(count: Int) -> UIImage {
-      setBirdImage()
+      //setBirdImage()
         switch count {
             case 0:
                 //過去のとりの表示
@@ -311,8 +316,8 @@ class birdHomeViewController: UIViewController {
             
             let imageJpgData : NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataBuffer)
             let image : UIImage = UIImage(data: imageJpgData)!
-            self.photoPreviewImageView.image = image;
-            
+            self.photoPreviewImageView.image = image
+            self.mealPhoto.image = image
             self.hiddenCameraView()
             self.showPhotoPreview()
         })
@@ -378,8 +383,24 @@ class birdHomeViewController: UIViewController {
         let hiruTime = userDefault.objectForKey("hiru") as! String
         let yoruTime = userDefault.objectForKey("yoru") as! String
         if isMealTime(asaTime) || isMealTime(hiruTime) || isMealTime(yoruTime){
-            didAddPhoto()
+            eatPhoto()
         }
+    }
+    
+    func eatPhoto() {
+        self.view.addSubview(mealPhoto)
+        UIView.animateWithDuration(2.5, animations: { () -> Void in
+            let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
+            let scale = CGAffineTransformMakeScale(0.01, 0.01)
+            let transition = CGAffineTransformMakeTranslation(self.view.frame.width/2-self.mealPhoto.bounds.size.width/2 - 85, self.view.frame.size.height - tabbarHeight! - 330)
+            let rotateScale = CGAffineTransformRotate(scale, CGFloat(180 * M_PI / 180))
+            self.mealPhoto.transform = CGAffineTransformConcat(rotateScale, transition)
+        }, completion: {(Bool) -> Void in
+            self.didAddPhoto()
+            self.mealPhoto.removeFromSuperview()
+            self.mealPhoto.transform = CGAffineTransformIdentity
+        })
+        
     }
     
     func checkData() {
