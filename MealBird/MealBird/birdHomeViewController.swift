@@ -19,6 +19,8 @@ class birdHomeViewController: UIViewController {
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
     
+     let userDefault = NSUserDefaults.standardUserDefaults()
+    
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var photoPreviewImageView: UIImageView!
     
@@ -29,6 +31,20 @@ class birdHomeViewController: UIViewController {
         self.setupTakePhotoButtons()
         self.hiddenPhotoPreview()
         self.showCameraView()
+        
+        if let count = userDefault.objectForKey("count") as? Int {
+            switch count {
+            case 0,1,2:
+                messageLabel.text = "生まれるまで" + String(3 - count) + "食"
+            case 3,4,5,6,7:
+                messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
+            case 8,9:
+                messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
+            default:
+                break
+            }
+        }
+
     }
 
 
@@ -168,4 +184,22 @@ class birdHomeViewController: UIViewController {
         }
     }
     
+    @IBAction func didPushGohanButton(sender: AnyObject) {
+        var count = 0
+        if let prevCount = userDefault.objectForKey("count") as? Int {
+            count = (prevCount + 1) % 10
+        }
+        userDefault.setObject(count, forKey: "count")
+        
+        switch count {
+        case 0,1,2:
+            messageLabel.text = "生まれるまで" + String(3 - count) + "食"
+        case 3,4,5,6,7:
+            messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
+        case 8,9:
+            messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
+        default:
+            break
+        }
+    }
 }
