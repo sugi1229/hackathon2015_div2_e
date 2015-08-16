@@ -57,7 +57,7 @@
         <!--鳥-->
         <scene sceneID="EIh-Ki-ISB">
             <objects>
-                <viewController id="5gS-Tq-I8I" sceneMemberID="viewController">
+                <viewController id="5gS-Tq-I8I" customClass="birdHomeViewController" customModule="MealBird" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WxN-ks-14T"/>
                         <viewControllerLayoutGuide type="bottom" id="RdV-Zk-CLk"/>
@@ -90,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klg-cf-kjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944" y="961"/>
+            <point key="canvasLocation" x="944" y="986"/>
         </scene>
         <!--写真-->
         <scene sceneID="dth-fP-wbC">

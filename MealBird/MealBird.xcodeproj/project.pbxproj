@@ -13,6 +13,7 @@
 		E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D41B805C6C003ED714 /* Images.xcassets */; };
 		E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */; };
 		E9BB03E41B805C6C003ED714 /* MealBirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03E31B805C6C003ED714 /* MealBirdTests.swift */; };
+		E9BB03EE1B806AB5003ED714 /* birdHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03ED1B806AB5003ED714 /* birdHomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		E9BB03DD1B805C6C003ED714 /* MealBirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealBirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03E21B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03E31B805C6C003ED714 /* MealBirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBirdTests.swift; sourceTree = "<group>"; };
+		E9BB03ED1B806AB5003ED714 /* birdHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = birdHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */,
 				E9BB03CF1B805C6C003ED714 /* ViewController.swift */,
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
+				E9BB03ED1B806AB5003ED714 /* birdHomeViewController.swift */,
 				E9BB03D41B805C6C003ED714 /* Images.xcassets */,
 				E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */,
 				E9BB03CB1B805C6C003ED714 /* Supporting Files */,
@@ -214,6 +217,7 @@
 			files = (
 				E9BB03D01B805C6C003ED714 /* ViewController.swift in Sources */,
 				E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */,
+				E9BB03EE1B806AB5003ED714 /* birdHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
