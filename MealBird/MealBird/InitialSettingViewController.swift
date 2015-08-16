@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource{
+class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UIAlertViewDelegate{
     
     @IBOutlet var asaTime: UILabel!
     @IBOutlet var hiruTime: UILabel!
@@ -17,6 +17,7 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
     @IBOutlet weak var asaView: UIButton!
     @IBOutlet weak var hiruView: UIButton!
     @IBOutlet weak var yoruView: UIButton!
+    @IBOutlet weak var tourokuButton: UIBarButtonItem!
     
     //どれが選択されているかを判断する
     private var flagSelect: Int! = 0
@@ -36,12 +37,24 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //初期設定か調べる
+        var udId : AnyObject! = ud.objectForKey("asa")
+        
+        //テスト用
+        //print("test:")
+        //println(udId)
+        //ud.removeObjectForKey("asa")
+        
+        //初期設定か判断
+        if(udId != nil){
+            ud.removeObjectForKey("asa")
+            self.performSegueWithIdentifier("toMainVC", sender: nil)
+        }
         
         //初期状態で"朝"を選択している状態
         asaView.backgroundColor = UIColor.grayColor()
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        self.title = "初期設定"
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,22 +90,15 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
         switch(flagSelect){
         case 0: //朝
             asaTime.text = asaValue[row]
-            //UserDefaultに保存
-            ud.removeObjectForKey("asa")
-            ud.setObject(asaValue[row], forKey: "asa")
             //次に表示するとき用に保存
             asaSelect = row
             break
         case 1: //昼
             hiruTime.text = hiruValue[row]
-            ud.removeObjectForKey("hiru")
-            ud.setObject(hiruValue[row], forKey: "hiru")
             hiruSelect = row
             break
         case 2: //夜
             yoruTime.text = yoruValue[row]
-            ud.removeObjectForKey("yoru")
-            ud.setObject(yoruValue[row], forKey: "yoru")
             yoruSelect = row
             break
         default:
@@ -140,4 +146,25 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
 
     }
     
+    //登録ボタン押されたとき
+    @IBAction func didTapButton(sender: AnyObject) {
+        //アラート表示
+        let av = UIAlertView(title: "設定確認", message: "朝：" + asaValue[asaSelect] + "\n昼：" + hiruValue[hiruSelect] + "\n夜：" + yoruValue[yoruSelect], delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
+        av.show()
+    }
+    
+    //アラートボタンについて
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if(buttonIndex == alertView.cancelButtonIndex){
+            //キャンセル
+        }else{
+            //OK
+            //選択した内容の保存
+            ud.setObject(asaValue[asaSelect], forKey: "asa")
+            ud.setObject(hiruValue[hiruSelect], forKey: "hiru")
+            ud.setObject(hiruValue[yoruSelect], forKey: "yoru")
+            
+            self.performSegueWithIdentifier("toMainVC", sender: nil)
+        }
+    }
 }
