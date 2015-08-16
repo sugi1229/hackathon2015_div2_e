@@ -21,7 +21,7 @@ class birdHomeViewController: UIViewController {
     var decidePhotoButton : UIButton!
     var birdImageView : UIImageView!
     
-     let userDefault = NSUserDefaults.standardUserDefaults()
+    let userDefault = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var photoPreviewImageView: UIImageView!
@@ -45,6 +45,15 @@ class birdHomeViewController: UIViewController {
             default:
                 break
             }
+        }
+        
+        if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+            print("adultBirds")
+            println(adultBirds.last)
+        } else {
+            let n = (Int)(arc4random() % 5)
+            let adultBirds : [Int] = [n]
+            userDefault.setObject(adultBirds, forKey: "adultBirds")
         }
 
     }
@@ -71,23 +80,65 @@ class birdHomeViewController: UIViewController {
                 return UIImage(named: "tamago2.png")!
             case 3:
                 return UIImage(named: "hiyoko.png")!
-            case 4:
+            case 4,5,6,7:
                 return UIImage(named: "hiyoko.png")!
-            case 5:
-                return UIImage(named: "hiyoko.png")!
-            case 6:
-                return UIImage(named: "hiyoko.png")!
-            case 7:
-                return UIImage(named: "hiyoko.png")!
-            case 8:
-                return UIImage(named: "botton_inko.png")!
-            case 9:
-                return UIImage(named: "botton_inko.png")!
+            case 8,9:
+            if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+                switch adultBirds.last! {
+                    case 0:
+                        return UIImage(named: "botton_inko.png")!
+                    case 1:
+                        return UIImage(named: "kozakura_inko.png")!
+                    case 2:
+                        return UIImage(named: "okame_inko.png")!
+                    case 3:
+                        return UIImage(named: "sekisei_inko.png")!
+                    case 4:
+                        return UIImage(named: "sekisei2_inko.png")!
+                    default:
+                        return UIImage(named: "botton_inko.png")!
+                    }
+                } else {
+                    return UIImage(named: "botton_inko.png")!
+                }
             default:
                 return UIImage(named: "hiyoko.png")!
         }
     }
 
+    @IBAction func didPushGohanButton(sender: AnyObject) {
+        var count = 0
+        if let prevCount = userDefault.objectForKey("count") as? Int {
+            count = (prevCount + 1) % 10
+        }
+        userDefault.setObject(count, forKey: "count")
+        
+        switch count {
+        case 0,1,2:
+            messageLabel.text = "生まれるまで" + String(3 - count) + "食"
+        case 3,4,5,6,7:
+            messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
+        case 8,9:
+            messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
+        default:
+            break
+        }
+        birdImageView.image = getBird(count)
+        if count == 0 {
+            setupAdultBird()
+        }
+    }
+    
+    func setupAdultBird() {
+        if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+            
+        }
+    }
+
+
+
+
+//Camera
     func setupCammera() {
         cameraSession = AVCaptureSession()
         
@@ -225,23 +276,4 @@ class birdHomeViewController: UIViewController {
         }
     }
     
-    @IBAction func didPushGohanButton(sender: AnyObject) {
-        var count = 0
-        if let prevCount = userDefault.objectForKey("count") as? Int {
-            count = (prevCount + 1) % 10
-        }
-        userDefault.setObject(count, forKey: "count")
-        
-        switch count {
-        case 0,1,2:
-            messageLabel.text = "生まれるまで" + String(3 - count) + "食"
-        case 3,4,5,6,7:
-            messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
-        case 8,9:
-            messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
-        default:
-            break
-        }
-        birdImageView.image = getBird(count)
-    }
 }
