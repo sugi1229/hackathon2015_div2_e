@@ -25,6 +25,7 @@ class birdHomeViewController: UIViewController {
     @IBOutlet weak var cameraButton: UIButton!
     
     private var myImageView: UIImageView!
+    private var myImageViewArray: [UIImageView] = []
     private var myImage: UIImage!
     
     private var myValue: Int!
@@ -99,7 +100,6 @@ class birdHomeViewController: UIViewController {
         switch count {
             case 0:
                 //過去のとりの表示
-                setBirdImage()
                 //初回
                 return UIImage(named: "tamago0.png")!
             case 1:
@@ -141,6 +141,9 @@ class birdHomeViewController: UIViewController {
         
         
         //とり
+        if count == 0 {
+            setBirdImage()
+        }
         birdImageView.image = getBirdImage(count)
         setupMessageLabel()
         
@@ -159,35 +162,42 @@ class birdHomeViewController: UIViewController {
     }
 
     func setBirdImage(){
-        myImageView = UIImageView(frame: CGRectMake(0,0,100,120))
+        let widthSize = Int(self.view.frame.size.width - 70)
+        let highSize = Int(self.view.frame.size.height - 110)
+        
+        //var x = Int(arc4random()) % widthSize
+        //var y = Int(arc4random()) % highSize
+        let x = arc4random_uniform(UInt32(widthSize))
+        let y = arc4random_uniform(UInt32(highSize))
+        
+        myImageView = UIImageView(frame: CGRectMake(CGFloat(x),CGFloat(y),50,50))
         if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
             switch adultBirds.last! {
             case 0:
-                let myImage = UIImage(named: "botton_inko.png")!
+                myImageView.image = UIImage(named: "botton_inko.png")!
                 break
             case 1:
-                let myImage = UIImage(named: "kozakura_inko.png")!
+                myImageView.image = UIImage(named: "kozakura_inko.png")!
                 break
             case 2:
-                let myImage = UIImage(named: "okame_inko.png")!
+                myImageView.image = UIImage(named: "okame_inko.png")!
                 break
             case 3:
-                let myImage = UIImage(named: "sekisei_inko.png")!
+                myImageView.image = UIImage(named: "sekisei_inko.png")!
                 break
             case 4:
-                let myImage = UIImage(named: "sekisei2_inko.png")!
+                myImageView.image = UIImage(named: "sekisei2_inko.png")!
                 break
             default:
-                let myImage = UIImage(named: "botton_inko.png")!
+                myImageView.image = UIImage(named: "botton_inko.png")!
                 break
             }
         }else{
-                let myImage = UIImage(named: "botton_inko.png")!
+                myImageView.image = UIImage(named: "botton_inko.png")!
             }
         
-        myImageView.image = myImage
-        myImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: 200.0)
         self.view.addSubview(myImageView)
+        myImageViewArray.append(myImageView)
     }
 
 
@@ -350,6 +360,9 @@ class birdHomeViewController: UIViewController {
         photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
         messageLabel.hidden = false
         cameraButton.hidden = false
+        for imageView in myImageViewArray {
+            imageView.hidden = false
+        }
     }
     
     func hiddenHomeView() {
@@ -358,6 +371,9 @@ class birdHomeViewController: UIViewController {
         messageLabel.hidden = true
         cameraButton.hidden = true
         birdImageView.removeFromSuperview()
+        for imageView in myImageViewArray {
+            imageView.hidden = true
+        }
     }
     
     func didPushRetakePhotoButton(sender: AnyObject) {
