@@ -10,5 +10,6 @@
 #define MealBird_MealBird_Bridging_Header_h
 
 #import "MagicalRecord.h"
+#import "Photo.h"
 
 #endif

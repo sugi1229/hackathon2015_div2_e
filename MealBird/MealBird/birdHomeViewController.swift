@@ -133,7 +133,24 @@ class birdHomeViewController: UIViewController {
     }
     
     func didPushDesidePhotoButton(sender: AnyObject) {
-        
+        let image = self.photoPreviewImageView.image
+        let photo = Photo.MR_createEntity()
+        photo.image = NSData(data: UIImagePNGRepresentation(image))
+        photo.date = NSDate()
+        photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
+        checkData()
+    }
+    
+    func checkData() {
+        let photos = Photo.MR_findAll()
+        for photo in photos {
+            if let p = photo as? Photo {
+                print("image：")
+                println(photo.image)
+                print("date：")
+                println(photo.date)
+            }
+        }
     }
     
 }
