@@ -146,7 +146,8 @@ class birdHomeViewController: UIViewController {
         photo.date = NSDate()
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
         hiddenPhotoPreview()
-        checkData()
+        photoPreviewImageView.hidden = false
+        photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
     }
     
     func checkData() {
