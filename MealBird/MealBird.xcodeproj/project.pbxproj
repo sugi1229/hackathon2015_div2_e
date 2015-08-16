@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */; };
-		E9BB03D01B805C6C003ED714 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CF1B805C6C003ED714 /* ViewController.swift */; };
 		E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D11B805C6C003ED714 /* Main.storyboard */; };
 		E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D41B805C6C003ED714 /* Images.xcassets */; };
 		E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */; };
 		E9BB03E41B805C6C003ED714 /* MealBirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03E31B805C6C003ED714 /* MealBirdTests.swift */; };
+		E9BB03EE1B806AB5003ED714 /* birdHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03ED1B806AB5003ED714 /* birdHomeViewController.swift */; };
+		E9BB03F01B807233003ED714 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03EF1B807233003ED714 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		E9BB03C81B805C6C003ED714 /* MealBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03CC1B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9BB03CF1B805C6C003ED714 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9BB03D21B805C6C003ED714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9BB03D41B805C6C003ED714 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9BB03D71B805C6C003ED714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E9BB03DD1B805C6C003ED714 /* MealBirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealBirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03E21B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03E31B805C6C003ED714 /* MealBirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBirdTests.swift; sourceTree = "<group>"; };
+		E9BB03ED1B806AB5003ED714 /* birdHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = birdHomeViewController.swift; sourceTree = "<group>"; };
+		E9BB03EF1B807233003ED714 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */,
-				E9BB03CF1B805C6C003ED714 /* ViewController.swift */,
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
+				E9BB03ED1B806AB5003ED714 /* birdHomeViewController.swift */,
+				E9BB03EF1B807233003ED714 /* TabBarController.swift */,
 				E9BB03D41B805C6C003ED714 /* Images.xcassets */,
 				E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */,
 				E9BB03CB1B805C6C003ED714 /* Supporting Files */,
@@ -212,8 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9BB03D01B805C6C003ED714 /* ViewController.swift in Sources */,
+				E9BB03F01B807233003ED714 /* TabBarController.swift in Sources */,
 				E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */,
+				E9BB03EE1B806AB5003ED714 /* birdHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
