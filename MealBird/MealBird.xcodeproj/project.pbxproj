@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */; };
+		955DD195D6923B3FF9454E21 /* libPods-MealBird.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */; };
+		E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */; };
+		E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57311B8090DD008A8C11 /* TabBarController.swift */; };
 		E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */; };
-		E9BB03D01B805C6C003ED714 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CF1B805C6C003ED714 /* ViewController.swift */; };
 		E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D11B805C6C003ED714 /* Main.storyboard */; };
 		E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D41B805C6C003ED714 /* Images.xcassets */; };
 		E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */; };
@@ -26,10 +29,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialSettingViewController.swift; sourceTree = "<group>"; };
+		8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MealBird.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93608B7BA918AB06FDA76A41 /* Pods-MealBird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.debug.xcconfig"; sourceTree = "<group>"; };
+		E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.release.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.release.xcconfig"; sourceTree = "<group>"; };
+		E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = birdHomeViewController.swift; sourceTree = "<group>"; };
+		E9BA57311B8090DD008A8C11 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E9BB03C81B805C6C003ED714 /* MealBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03CC1B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9BB03CF1B805C6C003ED714 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9BB03D21B805C6C003ED714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9BB03D41B805C6C003ED714 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9BB03D71B805C6C003ED714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955DD195D6923B3FF9454E21 /* libPods-MealBird.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B95BCBAE6DB2637C1F194992 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9BB03BF1B805C6C003ED714 = {
 			isa = PBXGroup;
 			children = (
 				E9BB03CA1B805C6C003ED714 /* MealBird */,
 				E9BB03E01B805C6C003ED714 /* MealBirdTests */,
 				E9BB03C91B805C6C003ED714 /* Products */,
+				F9C7C390DAB495242EBBE745 /* Pods */,
+				B95BCBAE6DB2637C1F194992 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,8 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */,
-				E9BB03CF1B805C6C003ED714 /* ViewController.swift */,
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
+				8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */,
+				E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */,
+				E9BA57311B8090DD008A8C11 /* TabBarController.swift */,
 				E9BB03D41B805C6C003ED714 /* Images.xcassets */,
 				E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */,
 				E9BB03CB1B805C6C003ED714 /* Supporting Files */,
@@ -112,6 +133,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F9C7C390DAB495242EBBE745 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93608B7BA918AB06FDA76A41 /* Pods-MealBird.debug.xcconfig */,
+				E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9BB03E71B805C6C003ED714 /* Build configuration list for PBXNativeTarget "MealBird" */;
 			buildPhases = (
+				543E89461F388D0AA2938232 /* Check Pods Manifest.lock */,
 				E9BB03C41B805C6C003ED714 /* Sources */,
 				E9BB03C51B805C6C003ED714 /* Frameworks */,
 				E9BB03C61B805C6C003ED714 /* Resources */,
+				FDD68B9B09C12370F140B8D9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,13 +239,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		543E89461F388D0AA2938232 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FDD68B9B09C12370F140B8D9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MealBird/Pods-MealBird-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E9BB03C41B805C6C003ED714 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9BB03D01B805C6C003ED714 /* ViewController.swift in Sources */,
+				8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */,
+				E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */,
 				E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */,
+				E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +405,7 @@
 		};
 		E9BB03E81B805C6C003ED714 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93608B7BA918AB06FDA76A41 /* Pods-MealBird.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MealBird/Info.plist;
@@ -348,6 +416,7 @@
 		};
 		E9BB03E91B805C6C003ED714 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MealBird/Info.plist;
@@ -409,6 +478,7 @@
 				E9BB03E91B805C6C003ED714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E9BB03EA1B805C6C003ED714 /* Build configuration list for PBXNativeTarget "MealBirdTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +487,7 @@
 				E9BB03EC1B805C6C003ED714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
