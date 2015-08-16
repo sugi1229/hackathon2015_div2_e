@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */; };
 		E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */; };
-		E9BB03D01B805C6C003ED714 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CF1B805C6C003ED714 /* ViewController.swift */; };
 		E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D11B805C6C003ED714 /* Main.storyboard */; };
 		E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D41B805C6C003ED714 /* Images.xcassets */; };
 		E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */; };
@@ -26,10 +26,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialSettingViewController.swift; sourceTree = "<group>"; };
 		E9BB03C81B805C6C003ED714 /* MealBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03CC1B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9BB03CF1B805C6C003ED714 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9BB03D21B805C6C003ED714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9BB03D41B805C6C003ED714 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9BB03D71B805C6C003ED714 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -78,8 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */,
-				E9BB03CF1B805C6C003ED714 /* ViewController.swift */,
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
+				8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */,
 				E9BB03D41B805C6C003ED714 /* Images.xcassets */,
 				E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */,
 				E9BB03CB1B805C6C003ED714 /* Supporting Files */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9BB03D01B805C6C003ED714 /* ViewController.swift in Sources */,
+				8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */,
 				E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +409,7 @@
 				E9BB03E91B805C6C003ED714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E9BB03EA1B805C6C003ED714 /* Build configuration list for PBXNativeTarget "MealBirdTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				E9BB03EC1B805C6C003ED714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
