@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */; };
 		955DD195D6923B3FF9454E21 /* libPods-MealBird.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */; };
+		E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */; };
+		E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57311B8090DD008A8C11 /* TabBarController.swift */; };
 		E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */; };
 		E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D11B805C6C003ED714 /* Main.storyboard */; };
 		E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BB03D41B805C6C003ED714 /* Images.xcassets */; };
@@ -31,6 +33,8 @@
 		8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MealBird.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93608B7BA918AB06FDA76A41 /* Pods-MealBird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.debug.xcconfig"; sourceTree = "<group>"; };
 		E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.release.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.release.xcconfig"; sourceTree = "<group>"; };
+		E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = birdHomeViewController.swift; sourceTree = "<group>"; };
+		E9BA57311B8090DD008A8C11 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E9BB03C81B805C6C003ED714 /* MealBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BB03CC1B805C6C003ED714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */,
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
 				8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */,
+				E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */,
+				E9BA57311B8090DD008A8C11 /* TabBarController.swift */,
 				E9BB03D41B805C6C003ED714 /* Images.xcassets */,
 				E9BB03D61B805C6C003ED714 /* LaunchScreen.xib */,
 				E9BB03CB1B805C6C003ED714 /* Supporting Files */,
@@ -272,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */,
+				E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */,
 				E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */,
+				E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
