@@ -303,7 +303,7 @@ class birdHomeViewController: UIViewController {
             return false
         }
     }
-
+    
     func didPushTakePhotoButton(sender: AnyObject) {
         
         let cameraConnection = imageOutput.connectionWithMediaType(AVMediaTypeVideo)
