@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */; };
-		8406CF2A1B80B4BC00468F87 /* botton_inko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406CF251B80B4BC00468F87 /* botton_inko@2x.png */; };
-		8406CF2B1B80B4BC00468F87 /* kozakura_inko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406CF261B80B4BC00468F87 /* kozakura_inko@2x.png */; };
-		8406CF2C1B80B4BC00468F87 /* okame_inko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406CF271B80B4BC00468F87 /* okame_inko@2x.png */; };
-		8406CF2D1B80B4BC00468F87 /* sekisei_inko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406CF281B80B4BC00468F87 /* sekisei_inko@2x.png */; };
-		8406CF2E1B80B4BC00468F87 /* sekisei2_inko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406CF291B80B4BC00468F87 /* sekisei2_inko@2x.png */; };
 		955DD195D6923B3FF9454E21 /* libPods-MealBird.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */; };
 		E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */; };
 		E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57311B8090DD008A8C11 /* TabBarController.swift */; };
@@ -37,11 +32,6 @@
 
 /* Begin PBXFileReference section */
 		8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialSettingViewController.swift; sourceTree = "<group>"; };
-		8406CF251B80B4BC00468F87 /* botton_inko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "botton_inko@2x.png"; path = "../../Desktop/botton_inko@2x.png"; sourceTree = "<group>"; };
-		8406CF261B80B4BC00468F87 /* kozakura_inko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kozakura_inko@2x.png"; path = "../../Desktop/kozakura_inko@2x.png"; sourceTree = "<group>"; };
-		8406CF271B80B4BC00468F87 /* okame_inko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "okame_inko@2x.png"; path = "../../Desktop/okame_inko@2x.png"; sourceTree = "<group>"; };
-		8406CF281B80B4BC00468F87 /* sekisei_inko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sekisei_inko@2x.png"; path = "../../Desktop/sekisei_inko@2x.png"; sourceTree = "<group>"; };
-		8406CF291B80B4BC00468F87 /* sekisei2_inko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sekisei2_inko@2x.png"; path = "../../Desktop/sekisei2_inko@2x.png"; sourceTree = "<group>"; };
 		8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MealBird.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93608B7BA918AB06FDA76A41 /* Pods-MealBird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.debug.xcconfig"; sourceTree = "<group>"; };
 		E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.release.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,11 +74,6 @@
 		8406CF241B80B48D00468F87 /* image */ = {
 			isa = PBXGroup;
 			children = (
-				8406CF251B80B4BC00468F87 /* botton_inko@2x.png */,
-				8406CF261B80B4BC00468F87 /* kozakura_inko@2x.png */,
-				8406CF271B80B4BC00468F87 /* okame_inko@2x.png */,
-				8406CF281B80B4BC00468F87 /* sekisei_inko@2x.png */,
-				8406CF291B80B4BC00468F87 /* sekisei2_inko@2x.png */,
 			);
 			name = image;
 			path = ..;
@@ -266,14 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8406CF2E1B80B4BC00468F87 /* sekisei2_inko@2x.png in Resources */,
 				E9BB03D31B805C6C003ED714 /* Main.storyboard in Resources */,
-				8406CF2D1B80B4BC00468F87 /* sekisei_inko@2x.png in Resources */,
-				8406CF2B1B80B4BC00468F87 /* kozakura_inko@2x.png in Resources */,
-				8406CF2A1B80B4BC00468F87 /* botton_inko@2x.png in Resources */,
 				E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */,
 				E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */,
-				8406CF2C1B80B4BC00468F87 /* okame_inko@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
