@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,8 +32,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         if let photo = photos[indexPath.item] as? Photo {
             let image = UIImage(data: photo.image)
             cell.imageView.image = image
-            cell.imageView.transform = CGAffineTransformMakeRotation(CGFloat(90.0 * M_PI / 180))
-            cell.backgroundColor = UIColor.lightTextColor()
         }
         return cell
     }
@@ -45,15 +43,9 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let oneSide = (self.view.frame.size.width - 25) / 4;
+        return CGSizeMake(oneSide, oneSide)
     }
-    */
 
 }

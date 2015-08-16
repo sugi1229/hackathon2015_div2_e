@@ -13,5 +13,6 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
+        self.imageView.transform = CGAffineTransformMakeRotation(CGFloat(90.0 * M_PI / 180))
     }
 }

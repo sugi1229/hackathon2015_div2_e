@@ -322,9 +322,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Seh-W8-LAw">
-                                <rect key="frame" x="10" y="30" width="300" height="479"/>
+                                <rect key="frame" x="5" y="25" width="310" height="489"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="at9-3B-jlr">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="at9-3B-jlr">
                                     <size key="itemSize" width="65" height="65"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -363,10 +363,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Seh-W8-LAw" firstAttribute="leading" secondItem="bA8-6E-rSD" secondAttribute="leading" constant="10" id="KIi-Ov-0oO"/>
-                            <constraint firstItem="Seh-W8-LAw" firstAttribute="top" secondItem="ivF-b4-vGP" secondAttribute="bottom" constant="10" id="XIE-8V-wUg"/>
-                            <constraint firstItem="xlU-TI-YB8" firstAttribute="top" secondItem="Seh-W8-LAw" secondAttribute="bottom" constant="10" id="emB-BC-xWp"/>
-                            <constraint firstAttribute="trailing" secondItem="Seh-W8-LAw" secondAttribute="trailing" constant="10" id="qQg-OB-2jH"/>
+                            <constraint firstItem="Seh-W8-LAw" firstAttribute="leading" secondItem="bA8-6E-rSD" secondAttribute="leading" constant="5" id="KIi-Ov-0oO"/>
+                            <constraint firstItem="Seh-W8-LAw" firstAttribute="top" secondItem="ivF-b4-vGP" secondAttribute="bottom" constant="5" id="XIE-8V-wUg"/>
+                            <constraint firstItem="xlU-TI-YB8" firstAttribute="top" secondItem="Seh-W8-LAw" secondAttribute="bottom" constant="5" id="emB-BC-xWp"/>
+                            <constraint firstAttribute="trailing" secondItem="Seh-W8-LAw" secondAttribute="trailing" constant="5" id="qQg-OB-2jH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="写真" id="gyv-QD-5XC"/>
