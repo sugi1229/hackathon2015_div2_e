@@ -477,7 +477,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/minami/hackathon2015_div2_e/MealBird/MealBird/MealBird-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}//MealBird/MealBird-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -490,7 +490,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/minami/hackathon2015_div2_e/MealBird/MealBird/MealBird-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}//MealBird/MealBird-Bridging-Header.h";
 			};
 			name = Release;
 		};
