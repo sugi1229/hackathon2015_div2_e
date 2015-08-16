@@ -29,6 +29,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-pd-s0K" userLabel="View1">
                                 <rect key="frame" x="0.0" y="177" width="320" height="66"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-Fa-fRB">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapAsaView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BUc-yr-LC5"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-Gr-nPG">
                                         <rect key="frame" x="30" y="15" width="30" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -41,17 +50,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4s-Fa-fRB">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapAsaView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BUc-yr-LC5"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="C4s-Fa-fRB" firstAttribute="top" secondItem="Jxz-pd-s0K" secondAttribute="top" id="0mT-lL-0Mf"/>
                                     <constraint firstItem="C4s-Fa-fRB" firstAttribute="leading" secondItem="Jxz-pd-s0K" secondAttribute="leading" id="7gP-qw-vWB"/>
@@ -67,6 +67,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33L-zP-csD" userLabel="View3">
                                 <rect key="frame" x="0.0" y="309" width="320" height="66"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xm7-sv-eDp">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapYouView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gGF-YI-RO6"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="夜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwV-zf-PdD">
                                         <rect key="frame" x="30" y="15" width="30" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -79,17 +88,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xm7-sv-eDp">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapYouView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gGF-YI-RO6"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="xwV-zf-PdD" firstAttribute="top" secondItem="33L-zP-csD" secondAttribute="top" constant="15" id="3g8-aJ-pLu"/>
                                     <constraint firstAttribute="trailing" secondItem="Xm7-sv-eDp" secondAttribute="trailing" id="9tP-dw-YVj"/>
@@ -114,6 +114,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XyB-w0-RaJ" userLabel="View2">
                                 <rect key="frame" x="0.0" y="243" width="320" height="66"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAU-pX-zBp">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapHiruView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TvJ-tz-DSY"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKY-Gn-tVm">
                                         <rect key="frame" x="30" y="15" width="30" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -126,17 +135,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAU-pX-zBp">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapHiruView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TvJ-tz-DSY"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="eAU-pX-zBp" secondAttribute="trailing" id="8PS-E8-Wve"/>
                                     <constraint firstAttribute="bottom" secondItem="eAU-pX-zBp" secondAttribute="bottom" id="D6O-fU-aae"/>
