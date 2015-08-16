@@ -96,11 +96,11 @@ class birdHomeViewController: UIViewController {
     }
 
     func getBirdImage(count: Int) -> UIImage {
+      setBirdImage()
         switch count {
             case 0:
                 //過去のとりの表示
-                setBirdImage()
-                //初回
+                 //初回
                 return UIImage(named: "tamago0.png")!
             case 1:
                 return UIImage(named: "tamago1.png")!
@@ -163,30 +163,28 @@ class birdHomeViewController: UIViewController {
         if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
             switch adultBirds.last! {
             case 0:
-                let myImage = UIImage(named: "botton_inko.png")!
+                myImageView.image = UIImage(named: "botton_inko.png")!
                 break
             case 1:
-                let myImage = UIImage(named: "kozakura_inko.png")!
+                myImageView.image = UIImage(named: "kozakura_inko.png")!
                 break
             case 2:
-                let myImage = UIImage(named: "okame_inko.png")!
+                myImageView.image = UIImage(named: "okame_inko.png")!
                 break
             case 3:
-                let myImage = UIImage(named: "sekisei_inko.png")!
+                myImageView.image = UIImage(named: "sekisei_inko.png")!
                 break
             case 4:
-                let myImage = UIImage(named: "sekisei2_inko.png")!
+                myImageView.image = UIImage(named: "sekisei2_inko.png")!
                 break
             default:
-                let myImage = UIImage(named: "botton_inko.png")!
+                myImageView.image = UIImage(named: "botton_inko.png")!
                 break
             }
         }else{
-                let myImage = UIImage(named: "botton_inko.png")!
+                myImageView.image = UIImage(named: "botton_inko.png")!
             }
         
-        myImageView.image = myImage
-        myImageView.layer.position = CGPoint(x: self.view.bounds.width/2, y: 200.0)
         self.view.addSubview(myImageView)
     }
 
