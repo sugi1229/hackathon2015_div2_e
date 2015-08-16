@@ -47,7 +47,6 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
         
         //初期設定か判断
         if(udId != nil){
-            ud.removeObjectForKey("asa")
             self.performSegueWithIdentifier("toMainVC", sender: nil)
         }
         

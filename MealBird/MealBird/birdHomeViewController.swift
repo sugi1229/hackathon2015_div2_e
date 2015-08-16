@@ -29,23 +29,12 @@ class birdHomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        self.setupCammera()
-        self.setupTakePhotoButtons()
-        self.hiddenPhotoPreview()
-        self.showCameraView()
+        setupCammera()
+        setupTakePhotoButtons()
+        hiddenPhotoPreview()
+        showCameraView()
         
-        if let count = userDefault.objectForKey("count") as? Int {
-            switch count {
-            case 0,1,2:
-                messageLabel.text = "生まれるまで" + String(3 - count) + "食"
-            case 3,4,5,6,7:
-                messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
-            case 8,9:
-                messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
-            default:
-                break
-            }
-        }
+        setupMessageLabel()
         
         if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
             print("adultBirds")
@@ -58,6 +47,21 @@ class birdHomeViewController: UIViewController {
 
     }
 
+    func setupMessageLabel() {
+        if let count = userDefault.objectForKey("count") as? Int {
+            switch count {
+            case 0,1,2:
+                messageLabel.text = "生まれるまで" + String(3 - count) + "食"
+            case 3,4,5,6,7:
+                messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
+            case 8,9:
+                messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
+            default:
+                break
+            }
+        }
+    }
+    
     func setupBird() {
         let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
         birdImageView = UIImageView(frame: CGRectMake(self.view.frame.width/2, self.view.frame.size.height-tabbarHeight! - 52, 50, 50))
@@ -113,17 +117,9 @@ class birdHomeViewController: UIViewController {
         }
         userDefault.setObject(count, forKey: "count")
         
-        switch count {
-        case 0,1,2:
-            messageLabel.text = "生まれるまで" + String(3 - count) + "食"
-        case 3,4,5,6,7:
-            messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
-        case 8,9:
-            messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
-        default:
-            break
-        }
+        setupMessageLabel()
         birdImageView.image = getBird(count)
+        
         if count == 0 {
             setupAdultBird()
         }
