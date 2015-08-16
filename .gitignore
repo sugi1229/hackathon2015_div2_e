@@ -17,8 +17,8 @@ DerivedData
 *.xcuserstate
 
 # CocoaPod
-Pods/*
-Podfile.lock
+MealBird/Pods/*
+MealBird/Podfile.lock
 
 # others
 *.swp
