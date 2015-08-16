@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
 class birdHomeViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class birdHomeViewController: UIViewController {
     var takePhotoButton : UIButton!
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
+    var birdImageView : UIImageView!
     
      let userDefault = NSUserDefaults.standardUserDefaults()
     
@@ -47,6 +49,44 @@ class birdHomeViewController: UIViewController {
 
     }
 
+    func setupBird() {
+        let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
+        birdImageView = UIImageView(frame: CGRectMake(self.view.frame.width/2, self.view.frame.size.height-tabbarHeight! - 52, 50, 50))
+        birdImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        if let count = userDefault.objectForKey("count") as? Int {
+            birdImageView.image = getBird(count)
+        } else {
+            birdImageView.image = getBird(0)
+        }
+        self.view.addSubview(birdImageView)
+    }
+
+    func getBird(count: Int) -> UIImage {
+        switch count {
+            case 0:
+                return UIImage(named: "tamago0.png")!
+            case 1:
+                return UIImage(named: "tamago1.png")!
+            case 2:
+                return UIImage(named: "tamago2.png")!
+            case 3:
+                return UIImage(named: "hiyoko.png")!
+            case 4:
+                return UIImage(named: "hiyoko.png")!
+            case 5:
+                return UIImage(named: "hiyoko.png")!
+            case 6:
+                return UIImage(named: "hiyoko.png")!
+            case 7:
+                return UIImage(named: "hiyoko.png")!
+            case 8:
+                return UIImage(named: "botton_inko.png")!
+            case 9:
+                return UIImage(named: "botton_inko.png")!
+            default:
+                return UIImage(named: "hiyoko.png")!
+        }
+    }
 
     func setupCammera() {
         cameraSession = AVCaptureSession()
@@ -170,6 +210,7 @@ class birdHomeViewController: UIViewController {
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
         hiddenPhotoPreview()
         setupHomeView()
+        setupBird()
     }
     
     func checkData() {
@@ -201,5 +242,6 @@ class birdHomeViewController: UIViewController {
         default:
             break
         }
+        birdImageView.image = getBird(count)
     }
 }
