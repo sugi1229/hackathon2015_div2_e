@@ -239,7 +239,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E84-7L-3Fg" userLabel="cameraButton">
-                                <rect key="frame" x="20" y="27" width="50" height="50"/>
+                                <rect key="frame" x="20" y="26" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="rCc-lL-n8u"/>
                                     <constraint firstAttribute="height" constant="50" id="wdg-io-HWY"/>
@@ -252,8 +252,8 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次のステップまであと３食" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHe-I5-lUL">
-                                <rect key="frame" x="60" y="40" width="240" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="84" y="40" width="216" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
