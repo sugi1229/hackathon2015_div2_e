@@ -16,11 +16,14 @@ class birdHomeViewController: UIViewController {
     var myDevice : AVCaptureDevice!
     var imageOutput : AVCaptureStillImageOutput!
     var imagePreviewLayer : AVCaptureVideoPreviewLayer!
+    
     var takePhotoButton : UIButton!
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
     var cameraMessageLabel : UILabel!
     
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var photoPreviewImageView: UIImageView!
     var birdImageView : UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     var mealPhoto : UIImageView!
@@ -28,37 +31,34 @@ class birdHomeViewController: UIViewController {
     private var myImageView: UIImageView!
     private var myImageViewArray: [UIImageView] = []
     private var myImage: UIImage!
-    
     private var myValue: Int!
     
     let userDefault = NSUserDefaults.standardUserDefaults()
     
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var photoPreviewImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         setupCammera()
         setupTakePhotoButtons()
+        setupCameraMessageLabel()
+        setupMessageLabel()
+        setupAdultBirds()
+        setupBird()
+        setupMealPhoto()
+        
         hiddenPhotoPreview()
         showCameraView()
+       
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        showCameraView()
+        hiddenHomeView()
+        hiddenPhotoPreview()
         setupCameraMessageLabel()
-        
         setupMessageLabel()
-        
-        if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
-            print("adultBirds")
-            println(adultBirds.last)
-        } else {
-            let n = (Int)(arc4random() % 5)
-            let adultBirds : [Int] = [n]
-            userDefault.setObject(adultBirds, forKey: "adultBirds")
-        }
-        
-        mealPhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-        mealPhoto.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
-        mealPhoto.contentMode = UIViewContentMode.ScaleAspectFill
     }
 
     func setupMessageLabel() {
@@ -74,8 +74,9 @@ class birdHomeViewController: UIViewController {
                 break
             }
         }
-        
-        //成長後
+    }
+    
+    func setupAdultBirds() {
         if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
             print("adultBirds")
             println(adultBirds)
@@ -85,24 +86,23 @@ class birdHomeViewController: UIViewController {
             userDefault.setObject(adultBirds, forKey: "adultBirds")
             myValue = 0;
         }
-
     }
     
     func setupBird() {
-        let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
         birdImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
+        let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
         birdImageView.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height - tabbarHeight! - birdImageView.frame.size.height/2)
         birdImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        if let count = userDefault.objectForKey("count") as? Int {
-            birdImageView.image = getBirdImage(count)
-        } else {
-            birdImageView.image = getBirdImage(0)
-        }
-        self.view.addSubview(birdImageView)
+    }
+    
+    func setupMealPhoto() {
+        mealPhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        mealPhoto.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        mealPhoto.contentMode = UIViewContentMode.ScaleAspectFill
     }
 
     func getBirdImage(count: Int) -> UIImage {
-      //setBirdImage()
+      //setAdultBirdImage()
         switch count {
             case 0:
                 //過去のとりの表示
@@ -145,10 +145,9 @@ class birdHomeViewController: UIViewController {
         }
         userDefault.setObject(count, forKey: "count")
         
-        
         //とり
         if count == 0 {
-            setBirdImage()
+            setAdultBirdImage()
         }
         birdImageView.image = getBirdImage(count)
         setupMessageLabel()
@@ -167,11 +166,10 @@ class birdHomeViewController: UIViewController {
         userDefault.setObject(udId, forKey: "adultBirds")
     }
 
-    //とりを背景に保存しておく用
-    func setBirdImage(){
+    func setAdultBirdImage(){
         let widthSize = Int(self.view.frame.size.width - 70)
         let highSize = Int(self.view.frame.size.height - 110)
-
+        
         let x = arc4random_uniform(UInt32(widthSize))
         let y = arc4random_uniform(UInt32(highSize))
         
@@ -369,18 +367,21 @@ class birdHomeViewController: UIViewController {
         self.view.layer.addSublayer(imagePreviewLayer)
         cameraSession.startRunning()
         self.view.addSubview(takePhotoButton)
+        cameraMessageLabel.hidden = false
     }
     
     func hiddenCameraView() {
          cameraSession.stopRunning()
          imagePreviewLayer.removeFromSuperlayer()
          takePhotoButton.removeFromSuperview()
+         cameraMessageLabel.hidden = true
     }
     
     func showPhotoPreview() {
         self.photoPreviewImageView.hidden = false;
         self.view.addSubview(retakePhotoButton)
         self.view.addSubview(decidePhotoButton)
+        cameraMessageLabel.hidden = false
     }
     
     func hiddenPhotoPreview() {
@@ -388,13 +389,16 @@ class birdHomeViewController: UIViewController {
         photoPreviewImageView.image = nil;
         retakePhotoButton.removeFromSuperview()
         decidePhotoButton.removeFromSuperview()
+        cameraMessageLabel.hidden = true
     }
     
     func setupHomeView() {
+        showBird()
         photoPreviewImageView.hidden = false
         photoPreviewImageView.image = UIImage(named: "bg_hiru.png")
         messageLabel.hidden = false
         cameraButton.hidden = false
+        cameraMessageLabel.hidden = true
         for imageView in myImageViewArray {
             imageView.hidden = false
         }
@@ -422,10 +426,9 @@ class birdHomeViewController: UIViewController {
         photo.image = NSData(data: UIImagePNGRepresentation(image))
         photo.date = NSDate()
         photo.managedObjectContext?.MR_saveToPersistentStoreAndWait()
-        cameraMessageLabel.hidden = true
+        
         hiddenPhotoPreview()
         setupHomeView()
-        setupBird()
         
         let asaTime = userDefault.objectForKey("asa") as! String
         let hiruTime = userDefault.objectForKey("hiru") as! String
@@ -433,6 +436,15 @@ class birdHomeViewController: UIViewController {
         if isMealTime(asaTime) || isMealTime(hiruTime) || isMealTime(yoruTime){
             eatPhoto()
         }
+    }
+    
+    func showBird() {
+        if let count = userDefault.objectForKey("count") as? Int {
+            birdImageView.image = getBirdImage(count)
+        } else {
+            birdImageView.image = getBirdImage(0)
+        }
+        self.view.addSubview(birdImageView)
     }
     
     func eatPhoto() {

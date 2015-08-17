@@ -223,7 +223,7 @@
             </objects>
             <point key="canvasLocation" x="-437" y="342"/>
         </scene>
-        <!--鳥-->
+        <!--Bird Home View Controller-->
         <scene sceneID="EIh-Ki-ISB">
             <objects>
                 <viewController id="5gS-Tq-I8I" customClass="birdHomeViewController" customModule="MealBird" customModuleProvider="target" sceneMemberID="viewController">
@@ -238,9 +238,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ELD-08-cGT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E84-7L-3Fg">
-                                <rect key="frame" x="20" y="26" width="45" height="30"/>
-                                <state key="normal" title="カメラ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E84-7L-3Fg" userLabel="cameraButton">
+                                <rect key="frame" x="20" y="26" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="rCc-lL-n8u"/>
+                                    <constraint firstAttribute="height" constant="50" id="wdg-io-HWY"/>
+                                </constraints>
+                                <state key="normal" image="camera.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -248,8 +252,8 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="次のステップまであと３食" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHe-I5-lUL">
-                                <rect key="frame" x="96" y="30" width="204" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="84" y="40" width="216" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -258,7 +262,7 @@
                         <constraints>
                             <constraint firstItem="E84-7L-3Fg" firstAttribute="leading" secondItem="Oh2-cm-oXw" secondAttribute="leading" constant="20" id="1UA-PE-QCs"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ELD-08-cGT" secondAttribute="bottom" id="3yq-sb-44T"/>
-                            <constraint firstItem="yHe-I5-lUL" firstAttribute="top" secondItem="WxN-ks-14T" secondAttribute="bottom" constant="10" id="8dA-OC-9xG"/>
+                            <constraint firstItem="yHe-I5-lUL" firstAttribute="top" secondItem="WxN-ks-14T" secondAttribute="bottom" constant="20" id="8dA-OC-9xG"/>
                             <constraint firstAttribute="trailing" secondItem="ELD-08-cGT" secondAttribute="trailing" id="ENo-E0-Te9"/>
                             <constraint firstItem="ELD-08-cGT" firstAttribute="leading" secondItem="Oh2-cm-oXw" secondAttribute="leading" id="YLT-wQ-Wxe"/>
                             <constraint firstItem="ELD-08-cGT" firstAttribute="top" secondItem="Oh2-cm-oXw" secondAttribute="topMargin" id="ljO-Q6-q19"/>
@@ -266,7 +270,7 @@
                             <constraint firstAttribute="trailing" secondItem="yHe-I5-lUL" secondAttribute="trailing" constant="20" id="ws9-Tu-x7l"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="鳥" id="4T4-re-27b"/>
+                    <tabBarItem key="tabBarItem" title="" image="home.png" id="4T4-re-27b"/>
                     <connections>
                         <outlet property="cameraButton" destination="E84-7L-3Fg" id="ZHo-jX-kKw"/>
                         <outlet property="messageLabel" destination="yHe-I5-lUL" id="NPh-E4-aiN"/>
@@ -277,39 +281,7 @@
             </objects>
             <point key="canvasLocation" x="944" y="342"/>
         </scene>
-        <!--図鑑-->
-        <scene sceneID="ODL-sB-Jsn">
-            <objects>
-                <viewController id="Pwg-Pd-eKI" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1fu-3G-c5H"/>
-                        <viewControllerLayoutGuide type="bottom" id="d2b-91-OeR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BQM-qF-tl7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="botton_inko.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fic-pR-RHy">
-                                <rect key="frame" x="135" y="259" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Tg2-E8-6p5"/>
-                                    <constraint firstAttribute="width" constant="50" id="Yq5-8Q-kjJ"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Fic-pR-RHy" secondAttribute="centerY" id="3El-SR-Por"/>
-                            <constraint firstAttribute="centerX" secondItem="Fic-pR-RHy" secondAttribute="centerX" id="AwZ-Ew-PcI"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="図鑑" id="7KA-mY-Z5i"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="klg-cf-kjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="944" y="961"/>
-        </scene>
-        <!--写真-->
+        <!--Photo Album View Controller-->
         <scene sceneID="dth-fP-wbC">
             <objects>
                 <viewController id="fJD-Gx-ZET" customClass="PhotoAlbumViewController" customModule="MealBird" customModuleProvider="target" sceneMemberID="viewController">
@@ -341,6 +313,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iIb-dg-UXr">
                                                     <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SUT-Te-7Z3">
+                                                    <rect key="frame" x="22" y="23" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -348,10 +323,13 @@
                                             <constraint firstAttribute="bottom" secondItem="iIb-dg-UXr" secondAttribute="bottom" id="2r4-kN-2W8"/>
                                             <constraint firstItem="iIb-dg-UXr" firstAttribute="leading" secondItem="F5u-IS-eFR" secondAttribute="leading" id="J61-7k-Dvi"/>
                                             <constraint firstAttribute="trailing" secondItem="iIb-dg-UXr" secondAttribute="trailing" id="N7G-iM-JIG"/>
+                                            <constraint firstAttribute="centerX" secondItem="SUT-Te-7Z3" secondAttribute="centerX" id="NKM-MM-XbC"/>
+                                            <constraint firstAttribute="centerY" secondItem="SUT-Te-7Z3" secondAttribute="centerY" id="NU2-3z-dvX"/>
                                             <constraint firstItem="iIb-dg-UXr" firstAttribute="top" secondItem="F5u-IS-eFR" secondAttribute="top" id="bN5-Sj-Oky"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="iIb-dg-UXr" id="TFv-rB-f6k"/>
+                                            <outlet property="indicator" destination="SUT-Te-7Z3" id="gHG-d9-4qG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -369,7 +347,7 @@
                             <constraint firstAttribute="trailing" secondItem="Seh-W8-LAw" secondAttribute="trailing" constant="5" id="qQg-OB-2jH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="写真" id="gyv-QD-5XC"/>
+                    <tabBarItem key="tabBarItem" title="" image="images.png" id="gyv-QD-5XC"/>
                     <connections>
                         <outlet property="collectionView" destination="Seh-W8-LAw" id="omk-Dy-Owv"/>
                     </connections>
@@ -381,7 +359,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="QsT-LX-ezE">
             <objects>
-                <tabBarController id="cGe-nS-6BZ" customClass="TabBarController" customModule="MealBird" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="cGe-nS-6BZ" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uqj-bo-TUr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -389,9 +367,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="fJD-Gx-ZET" kind="relationship" relationship="viewControllers" id="tm5-2F-3WZ"/>
                         <segue destination="5gS-Tq-I8I" kind="relationship" relationship="viewControllers" id="wNL-UP-3nd"/>
-                        <segue destination="Pwg-Pd-eKI" kind="relationship" relationship="viewControllers" id="VtT-Rj-v8Z"/>
+                        <segue destination="fJD-Gx-ZET" kind="relationship" relationship="viewControllers" id="XCR-93-Dzw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WtW-JY-98c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,7 +377,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="botton_inko.png" width="50" height="50"/>
+        <image name="camera.png" width="60" height="60"/>
+        <image name="home.png" width="29" height="29"/>
+        <image name="images.png" width="29" height="29"/>
         <image name="kozakura_inko.png" width="50" height="50"/>
         <image name="okame_inko.png" width="50" height="50"/>
     </resources>

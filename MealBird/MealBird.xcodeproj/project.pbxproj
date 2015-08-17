@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */; };
 		955DD195D6923B3FF9454E21 /* libPods-MealBird.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */; };
+		E92DF2861B81582D0008C313 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E92DF2831B81582D0008C313 /* camera@2x.png */; };
+		E92DF2871B81582D0008C313 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E92DF2841B81582D0008C313 /* home@2x.png */; };
+		E92DF2881B81582D0008C313 /* images@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E92DF2851B81582D0008C313 /* images@2x.png */; };
 		E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */; };
-		E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57311B8090DD008A8C11 /* TabBarController.swift */; };
 		E9BA57371B809CF5008A8C11 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9BA57351B809CF5008A8C11 /* Model.xcdatamodeld */; };
 		E9BA573B1B809D86008A8C11 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BA573A1B809D86008A8C11 /* Photo.m */; };
 		E9BA573F1B80B779008A8C11 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA573E1B80B779008A8C11 /* PhotoAlbumViewController.swift */; };
@@ -48,8 +50,10 @@
 		8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MealBird.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93608B7BA918AB06FDA76A41 /* Pods-MealBird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.debug.xcconfig"; sourceTree = "<group>"; };
 		E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.release.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.release.xcconfig"; sourceTree = "<group>"; };
+		E92DF2831B81582D0008C313 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		E92DF2841B81582D0008C313 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
+		E92DF2851B81582D0008C313 /* images@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "images@2x.png"; sourceTree = "<group>"; };
 		E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = birdHomeViewController.swift; sourceTree = "<group>"; };
-		E9BA57311B8090DD008A8C11 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E9BA57341B809B69008A8C11 /* MealBird-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MealBird-Bridging-Header.h"; sourceTree = "<group>"; };
 		E9BA57361B809CF5008A8C11 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E9BA57391B809D86008A8C11 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
@@ -100,6 +104,9 @@
 		8406CF241B80B48D00468F87 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E92DF2831B81582D0008C313 /* camera@2x.png */,
+				E92DF2841B81582D0008C313 /* home@2x.png */,
+				E92DF2851B81582D0008C313 /* images@2x.png */,
 				E9BA575F1B80EA49008A8C11 /* tamago0@2x.png */,
 				E9BA57601B80EA49008A8C11 /* tamago1@2x.png */,
 				E9BA57611B80EA49008A8C11 /* tamago2@2x.png */,
@@ -171,7 +178,6 @@
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
 				8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */,
 				E9BA57301B8090DD008A8C11 /* birdHomeViewController.swift */,
-				E9BA57311B8090DD008A8C11 /* TabBarController.swift */,
 				E9BA574C1B80BF44008A8C11 /* PhotoAlbum */,
 				E9BA57381B809D05008A8C11 /* DB */,
 				E9BB03D41B805C6C003ED714 /* Images.xcassets */,
@@ -306,12 +312,15 @@
 				E9BA57481B80B9E2008A8C11 /* sekisei_inko@2x.png in Resources */,
 				E9BA57641B80EA49008A8C11 /* tamago2@2x.png in Resources */,
 				E9BA57471B80B9E2008A8C11 /* okame_inko@2x.png in Resources */,
+				E92DF2861B81582D0008C313 /* camera@2x.png in Resources */,
+				E92DF2881B81582D0008C313 /* images@2x.png in Resources */,
 				E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */,
 				E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */,
 				E9BA57631B80EA49008A8C11 /* tamago1@2x.png in Resources */,
 				E9BA57571B80CCDC008A8C11 /* hiyoko@2x.png in Resources */,
 				E9BA57491B80B9E2008A8C11 /* sekisei2_inko@2x.png in Resources */,
 				E9BA57531B80C8FA008A8C11 /* bg_hiru@2x.png in Resources */,
+				E92DF2871B81582D0008C313 /* home@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +375,6 @@
 				E9BA573F1B80B779008A8C11 /* PhotoAlbumViewController.swift in Sources */,
 				8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */,
 				E9BA574B1B80BF3C008A8C11 /* PhotoAlbumCollectionViewCell.swift in Sources */,
-				E9BA57331B8090DD008A8C11 /* TabBarController.swift in Sources */,
 				E9BA57371B809CF5008A8C11 /* Model.xcdatamodeld in Sources */,
 				E9BB03CE1B805C6C003ED714 /* AppDelegate.swift in Sources */,
 				E9BA57321B8090DD008A8C11 /* birdHomeViewController.swift in Sources */,
