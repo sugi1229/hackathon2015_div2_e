@@ -107,16 +107,36 @@ class birdHomeViewController: UIViewController {
       //setAdultBirdImage()
         switch count {
             case 0:
-                //過去のとりの表示
-                 //初回
+                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "tamago0.png")!
             case 1:
+                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "tamago1.png")!
             case 2:
+                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "tamago2.png")!
-            case 3,4,5,6,7:
+            case 3:
+                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
+                
+                //sound
+                var soundIdRing:SystemSoundID = 0
+                let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound2", ofType:"wav")!)
+                AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                AudioServicesPlaySystemSound(soundIdRing)
+                
+                return UIImage(named: "hiyoko.png")!
+            case 4,5,6,7:
+                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "hiyoko.png")!
             case 8,9:
+                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 80,height: 80)
+                
+                //sound
+                var soundIdRing:SystemSoundID = 0
+                let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
+                AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                AudioServicesPlaySystemSound(soundIdRing)
+                
             if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
                 switch adultBirds.last! {
                     case 0:
@@ -136,6 +156,7 @@ class birdHomeViewController: UIViewController {
                     return UIImage(named: "botton_inko.png")!
                 }
             default:
+                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "hiyoko.png")!
         }
     }
@@ -502,6 +523,12 @@ class birdHomeViewController: UIViewController {
             self.mealPhoto.removeFromSuperview()
             self.mealPhoto.transform = CGAffineTransformIdentity
         })
+        
+        //sound
+        var soundIdRing:SystemSoundID = 0
+        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound3", ofType:"wav")!)
+        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+        AudioServicesPlaySystemSound(soundIdRing)
         
     }
     
