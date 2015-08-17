@@ -134,7 +134,8 @@ class birdHomeViewController: UIViewController {
         mealPhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         mealPhoto.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
         mealPhoto.contentMode = UIViewContentMode.ScaleAspectFill
-        mealPhoto.layer.cornerRadius = 10
+        mealPhoto.layer.cornerRadius = 20
+        mealPhoto.clipsToBounds = true
     }
 
     func getBirdImage(count: Int) -> UIImage {
@@ -153,13 +154,34 @@ class birdHomeViewController: UIViewController {
                 let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound2", ofType:"wav")!)
                 AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
                 AudioServicesPlaySystemSound(soundIdRing)
-                
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 40,height: 40)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y+5)
                 return UIImage(named: "hiyoko.png")!
-            case 4,5,6,7:
+            case 4:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 50,height: 50)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y)
+                return UIImage(named: "hiyoko.png")!
+            case 5:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 60,height: 60)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-5)
+                return UIImage(named: "hiyoko.png")!
+            case 6:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 70,height: 70)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-10)
+                return UIImage(named: "hiyoko.png")!
+            case 7:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 80,height: 80)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-15)
                 return UIImage(named: "hiyoko.png")!
             case 8,9:
-                birdImageView.frame = CGRect(x: 0,y: 0,width: 80,height: 80)
-                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-40)
+            if count == 8 {
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 110,height: 110)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-20)
+            } else {
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 130,height: 130)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-30)
+            }
+
                 
                 //sound
                 var soundIdRing:SystemSoundID = 0
@@ -245,6 +267,9 @@ class birdHomeViewController: UIViewController {
                 break
             case 4:
                 myImageView.image = UIImage(named: "sekisei2_inko.png")!
+                break
+            case 5:
+                myImageView.image = UIImage(named: "penguin@2x.png")!
                 break
             default:
                 myImageView.image = UIImage(named: "botton_inko.png")!
