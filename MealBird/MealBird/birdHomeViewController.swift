@@ -21,6 +21,7 @@ class birdHomeViewController: UIViewController {
     var retakePhotoButton : UIButton!
     var decidePhotoButton : UIButton!
     var cameraMessageLabel : UILabel!
+    var birdImageViewPosition : CGPoint!
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var photoPreviewImageView: UIImageView!
@@ -97,11 +98,11 @@ class birdHomeViewController: UIViewController {
         if let count = userDefault.objectForKey("count") as? Int {
             switch count {
             case 0,1,2:
-                messageLabel.text = "生まれるまで" + String(3 - count) + "食"
+                messageLabel.text = "生まれるまであと" + String(3 - count) + "食"
             case 3,4,5,6,7:
                 messageLabel.text = "大人になるまであと" + String(8 - count) + "食"
             case 8,9:
-                messageLabel.text = "卵が生まれるまで" + String(10 - count) + "食"
+                messageLabel.text = "卵が生まれるまであと" + String(10 - count) + "食"
             default:
                 break
             }
@@ -113,7 +114,7 @@ class birdHomeViewController: UIViewController {
             print("adultBirds")
             println(adultBirds)
         } else {
-            let n = (Int)(arc4random() % 5)
+            let n = (Int)(arc4random() % 6)
             let adultBirds : [Int] = [n]
             userDefault.setObject(adultBirds, forKey: "adultBirds")
             myValue = 0;
@@ -121,45 +122,66 @@ class birdHomeViewController: UIViewController {
     }
     
     func setupBird() {
-        birdImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
         let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
-        birdImageView.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height - tabbarHeight! - birdImageView.frame.size.height/2)
+        birdImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
+        birdImageViewPosition = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height - tabbarHeight! - birdImageView.frame.size.height/2)
+        birdImageView.layer.position = birdImageViewPosition
         birdImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        
     }
     
     func setupMealPhoto() {
         mealPhoto = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         mealPhoto.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
         mealPhoto.contentMode = UIViewContentMode.ScaleAspectFill
+        mealPhoto.layer.cornerRadius = 20
+        mealPhoto.clipsToBounds = true
     }
 
     func getBirdImage(count: Int) -> UIImage {
-      //setAdultBirdImage()
+        birdImageView.frame = CGRect(x: 0,y: 0,width: 50,height: 50)
+        birdImageView.layer.position = birdImageViewPosition
         switch count {
             case 0:
-                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "tamago0.png")!
             case 1:
-                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "tamago1.png")!
             case 2:
-                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
                 return UIImage(named: "tamago2.png")!
             case 3:
-                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
-                
                 //sound
                 var soundIdRing:SystemSoundID = 0
                 let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound2", ofType:"wav")!)
                 AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
                 AudioServicesPlaySystemSound(soundIdRing)
-                
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 40,height: 40)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y+5)
                 return UIImage(named: "hiyoko.png")!
-            case 4,5,6,7:
-                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 50,height: 50)
+            case 4:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 50,height: 50)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y)
+                return UIImage(named: "hiyoko.png")!
+            case 5:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 60,height: 60)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-5)
+                return UIImage(named: "hiyoko.png")!
+            case 6:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 70,height: 70)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-10)
+                return UIImage(named: "hiyoko.png")!
+            case 7:
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 80,height: 80)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-15)
                 return UIImage(named: "hiyoko.png")!
             case 8,9:
-                birdImageView.frame = CGRect(x: birdImageView.frame.origin.x,y: birdImageView.frame.origin.y,width: 80,height: 80)
+            if count == 8 {
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 110,height: 110)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-20)
+            } else {
+                birdImageView.frame = CGRect(x: 0,y: 0,width: 130,height: 130)
+                birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-30)
+            }
+
                 
                 //sound
                 var soundIdRing:SystemSoundID = 0
@@ -179,6 +201,8 @@ class birdHomeViewController: UIViewController {
                         return UIImage(named: "sekisei_inko.png")!
                     case 4:
                         return UIImage(named: "sekisei2_inko.png")!
+                    case 5:
+                        return UIImage(named: "penguin.png")!
                     default:
                         return UIImage(named: "botton_inko.png")!
                     }
@@ -212,7 +236,7 @@ class birdHomeViewController: UIViewController {
     
     func setupAdultBird() {
         var udId = userDefault.objectForKey("adultBirds") as! [Int]
-        let n = (Int)(arc4random() % 5)
+        let n = (Int)(arc4random() % 6)
         //myValue = myValue + 1
 
         udId.append(n)
@@ -243,6 +267,9 @@ class birdHomeViewController: UIViewController {
                 break
             case 4:
                 myImageView.image = UIImage(named: "sekisei2_inko.png")!
+                break
+            case 5:
+                myImageView.image = UIImage(named: "penguin@2x.png")!
                 break
             default:
                 myImageView.image = UIImage(named: "botton_inko.png")!
@@ -552,7 +579,7 @@ class birdHomeViewController: UIViewController {
         UIView.animateWithDuration(2.5, animations: { () -> Void in
             let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
             let scale = CGAffineTransformMakeScale(0.01, 0.01)
-            let transition = CGAffineTransformMakeTranslation(self.view.frame.width/2-self.mealPhoto.bounds.size.width/2 - 85, self.view.frame.size.height - tabbarHeight! - 330)
+            let transition = CGAffineTransformMakeTranslation(self.view.frame.width/2-self.mealPhoto.bounds.size.width/2 - 85, self.view.frame.size.height - tabbarHeight! - 320)
             let rotateScale = CGAffineTransformRotate(scale, CGFloat(180 * M_PI / 180))
             self.mealPhoto.transform = CGAffineTransformConcat(rotateScale, transition)
         }, completion: {(Bool) -> Void in
@@ -567,6 +594,10 @@ class birdHomeViewController: UIViewController {
         AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
         AudioServicesPlaySystemSound(soundIdRing)
         
+    }
+    
+    @IBAction func didpushbutton(sender: AnyObject) {
+        eatPhoto()
     }
     
     func checkData() {

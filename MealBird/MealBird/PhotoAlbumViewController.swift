@@ -34,7 +34,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
         if let photo = photos[indexPath.item] as? Photo {
             let image = UIImage(data: photo.image)
-            cell.setImage(image!)
+            cell.imageView.image = image
         }
         return cell
     }
@@ -47,7 +47,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let oneSide = (self.view.frame.size.width - 25) / 4;
+        let oneSide = self.view.frame.size.width - 10
         return CGSizeMake(oneSide, oneSide)
     }
     
