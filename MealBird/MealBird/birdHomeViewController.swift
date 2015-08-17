@@ -286,7 +286,7 @@ class birdHomeViewController: UIViewController {
     @IBAction func didPushCameraButton(sender: AnyObject) {
         showCameraView()
         hiddenHomeView()
-        cameraMessageLabel.hidden = false
+        self.view.addSubview(cameraMessageLabel)
     }
 
 //Camera
