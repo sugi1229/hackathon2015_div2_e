@@ -167,12 +167,11 @@ class birdHomeViewController: UIViewController {
         userDefault.setObject(udId, forKey: "adultBirds")
     }
 
+    //とりを背景に保存しておく用
     func setBirdImage(){
         let widthSize = Int(self.view.frame.size.width - 70)
         let highSize = Int(self.view.frame.size.height - 110)
-        
-        //var x = Int(arc4random()) % widthSize
-        //var y = Int(arc4random()) % highSize
+
         let x = arc4random_uniform(UInt32(widthSize))
         let y = arc4random_uniform(UInt32(highSize))
         
@@ -203,7 +202,37 @@ class birdHomeViewController: UIViewController {
             }
         
         self.view.addSubview(myImageView)
+        
         myImageViewArray.append(myImageView)
+        
+        //アニメーション
+        //追加されたとりのズームと移動
+        UIImageView.animateWithDuration(0.8,delay:0.2,
+            options:UIViewAnimationOptions.CurveEaseOut,
+            animations: {() -> Void in
+                self.myImageView.transform = CGAffineTransformMakeScale(2.0, 2.0)
+                self.myImageView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                self.myImageView.center = CGPointMake(CGFloat(x), CGFloat(y))
+            },
+            completion: nil
+        )
+    }
+    
+    //アニメーション
+    //とりが動く
+    func onImageAnimation(){
+        for imageView in myImageViewArray {
+            UIImageView.animateWithDuration(0.8,delay:0.2,
+                options:UIViewAnimationOptions.CurveEaseOut,
+                animations: {() -> Void in
+                    //imageView.transform = CGAffineTransformMakeScale(2.0, 2.0)
+                    //imageView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                    imageView.center = CGPointMake(50, 50)
+                },
+                completion: nil
+            )
+            
+        }
     }
 
 
