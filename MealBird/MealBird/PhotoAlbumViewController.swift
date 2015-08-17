@@ -16,9 +16,12 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photos = Photo.MR_findAll()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        photos = Photo.MR_findAll()
+        collectionView.reloadData()
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -31,7 +34,9 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
         if let photo = photos[indexPath.item] as? Photo {
             let image = UIImage(data: photo.image)
-            cell.imageView.image = image
+            cell.indicator.startAnimating()
+            cell.indicator.hidden = false
+            cell.imageView.image = image!
         }
         return cell
     }
@@ -47,5 +52,5 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         let oneSide = (self.view.frame.size.width - 25) / 4;
         return CGSizeMake(oneSide, oneSide)
     }
-
+    
 }
