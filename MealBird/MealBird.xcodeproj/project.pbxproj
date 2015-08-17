@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8406CF1F1B8067BC00468F87 /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */; };
+		84A93CD11B818A2E0044B20E /* sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A93CCE1B818A2E0044B20E /* sound1.wav */; };
+		84A93CD21B818A2E0044B20E /* sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A93CCF1B818A2E0044B20E /* sound2.wav */; };
+		84A93CD31B818A2E0044B20E /* sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84A93CD01B818A2E0044B20E /* sound3.wav */; };
+		84A93CD51B818EA20044B20E /* penguin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A93CD41B818EA20044B20E /* penguin@2x.png */; };
 		955DD195D6923B3FF9454E21 /* libPods-MealBird.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */; };
 		E92DF2861B81582D0008C313 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E92DF2831B81582D0008C313 /* camera@2x.png */; };
 		E92DF2871B81582D0008C313 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E92DF2841B81582D0008C313 /* home@2x.png */; };
@@ -47,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		8406CF1E1B8067BC00468F87 /* InitialSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialSettingViewController.swift; sourceTree = "<group>"; };
+		84A93CCE1B818A2E0044B20E /* sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound1.wav; sourceTree = "<group>"; };
+		84A93CCF1B818A2E0044B20E /* sound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound2.wav; sourceTree = "<group>"; };
+		84A93CD01B818A2E0044B20E /* sound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound3.wav; sourceTree = "<group>"; };
+		84A93CD41B818EA20044B20E /* penguin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "penguin@2x.png"; sourceTree = "<group>"; };
 		8DB713CFEB8B9D77548128A9 /* libPods-MealBird.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MealBird.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93608B7BA918AB06FDA76A41 /* Pods-MealBird.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.debug.xcconfig"; sourceTree = "<group>"; };
 		E7B2A983587A85245565F63B /* Pods-MealBird.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealBird.release.xcconfig"; path = "Pods/Target Support Files/Pods-MealBird/Pods-MealBird.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,9 +126,20 @@
 				E9BA57421B80B9E2008A8C11 /* okame_inko@2x.png */,
 				E9BA57431B80B9E2008A8C11 /* sekisei_inko@2x.png */,
 				E9BA57441B80B9E2008A8C11 /* sekisei2_inko@2x.png */,
+				84A93CD41B818EA20044B20E /* penguin@2x.png */,
 			);
 			name = image;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		84A93CC71B8182DF0044B20E /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				84A93CCE1B818A2E0044B20E /* sound1.wav */,
+				84A93CCF1B818A2E0044B20E /* sound2.wav */,
+				84A93CD01B818A2E0044B20E /* sound3.wav */,
+			);
+			name = sound;
 			sourceTree = "<group>";
 		};
 		B95BCBAE6DB2637C1F194992 /* Frameworks */ = {
@@ -173,6 +192,7 @@
 		E9BB03CA1B805C6C003ED714 /* MealBird */ = {
 			isa = PBXGroup;
 			children = (
+				84A93CC71B8182DF0044B20E /* sound */,
 				8406CF241B80B48D00468F87 /* image */,
 				E9BB03CD1B805C6C003ED714 /* AppDelegate.swift */,
 				E9BB03D11B805C6C003ED714 /* Main.storyboard */,
@@ -314,11 +334,15 @@
 				E9BA57471B80B9E2008A8C11 /* okame_inko@2x.png in Resources */,
 				E92DF2861B81582D0008C313 /* camera@2x.png in Resources */,
 				E92DF2881B81582D0008C313 /* images@2x.png in Resources */,
+				84A93CD31B818A2E0044B20E /* sound3.wav in Resources */,
+				84A93CD11B818A2E0044B20E /* sound1.wav in Resources */,
 				E9BB03D81B805C6C003ED714 /* LaunchScreen.xib in Resources */,
+				84A93CD51B818EA20044B20E /* penguin@2x.png in Resources */,
 				E9BB03D51B805C6C003ED714 /* Images.xcassets in Resources */,
 				E9BA57631B80EA49008A8C11 /* tamago1@2x.png in Resources */,
 				E9BA57571B80CCDC008A8C11 /* hiyoko@2x.png in Resources */,
 				E9BA57491B80B9E2008A8C11 /* sekisei2_inko@2x.png in Resources */,
+				84A93CD21B818A2E0044B20E /* sound2.wav in Resources */,
 				E9BA57531B80C8FA008A8C11 /* bg_hiru@2x.png in Resources */,
 				E92DF2871B81582D0008C313 /* home@2x.png in Resources */,
 			);
