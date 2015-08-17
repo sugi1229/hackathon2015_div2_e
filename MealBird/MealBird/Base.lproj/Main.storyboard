@@ -160,6 +160,9 @@
                                     <constraint firstAttribute="width" constant="30" id="RQO-C0-B0Q"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFk-92-rDD" userLabel="coverView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -168,6 +171,7 @@
                             <constraint firstItem="33L-zP-csD" firstAttribute="height" secondItem="XyB-w0-RaJ" secondAttribute="height" id="6gq-Pc-Ao8"/>
                             <constraint firstItem="33L-zP-csD" firstAttribute="top" secondItem="XyB-w0-RaJ" secondAttribute="bottom" id="6pf-Oz-MtS"/>
                             <constraint firstItem="33L-zP-csD" firstAttribute="leading" secondItem="yfC-Ge-QIv" secondAttribute="leading" id="7L4-zu-L7Z"/>
+                            <constraint firstAttribute="trailing" secondItem="kFk-92-rDD" secondAttribute="trailing" id="BTX-xY-gRA"/>
                             <constraint firstItem="33L-zP-csD" firstAttribute="trailing" secondItem="XyB-w0-RaJ" secondAttribute="trailing" id="EVa-do-A36"/>
                             <constraint firstItem="33L-zP-csD" firstAttribute="trailing" secondItem="yfC-Ge-QIv" secondAttribute="trailing" id="ILW-mY-dCA"/>
                             <constraint firstItem="ZpO-L6-8Fj" firstAttribute="top" secondItem="cUz-y3-VDB" secondAttribute="bottom" constant="20" id="IRQ-aF-NmS"/>
@@ -178,7 +182,10 @@
                             <constraint firstItem="33L-zP-csD" firstAttribute="height" secondItem="Jxz-pd-s0K" secondAttribute="height" id="OkV-aq-Ly6"/>
                             <constraint firstItem="Jxz-pd-s0K" firstAttribute="top" secondItem="ZpO-L6-8Fj" secondAttribute="bottom" constant="16" id="QBI-Wq-a2I"/>
                             <constraint firstItem="33L-zP-csD" firstAttribute="leading" secondItem="XyB-w0-RaJ" secondAttribute="leading" id="TVT-zV-MWY"/>
+                            <constraint firstItem="kFk-92-rDD" firstAttribute="top" secondItem="Qfy-5K-9QM" secondAttribute="top" id="Xr6-3O-qj0"/>
+                            <constraint firstItem="1Po-GQ-GXE" firstAttribute="top" secondItem="kFk-92-rDD" secondAttribute="bottom" id="bmx-0F-Bhm"/>
                             <constraint firstAttribute="centerX" secondItem="ZpO-L6-8Fj" secondAttribute="centerX" id="dfr-so-PkQ"/>
+                            <constraint firstItem="kFk-92-rDD" firstAttribute="leading" secondItem="Qfy-5K-9QM" secondAttribute="leading" id="ezs-eL-lO2"/>
                             <constraint firstItem="ZpO-L6-8Fj" firstAttribute="leading" secondItem="cWj-dT-xeq" secondAttribute="trailing" constant="5" id="kGR-iq-0uX"/>
                             <constraint firstItem="XyB-w0-RaJ" firstAttribute="top" secondItem="Jxz-pd-s0K" secondAttribute="bottom" id="pe6-gy-nPL"/>
                             <constraint firstItem="yfC-Ge-QIv" firstAttribute="bottom" secondItem="1Po-GQ-GXE" secondAttribute="top" id="uPb-er-GBk"/>
@@ -194,6 +201,7 @@
                     <connections>
                         <outlet property="asaTime" destination="CwK-yP-N2H" id="rUE-No-BLu"/>
                         <outlet property="asaView" destination="C4s-Fa-fRB" id="9zB-GK-VSi"/>
+                        <outlet property="coverView" destination="kFk-92-rDD" id="BGA-As-Tqb"/>
                         <outlet property="hiruTime" destination="SvO-1z-mkE" id="KQ8-Fe-arY"/>
                         <outlet property="hiruView" destination="eAU-pX-zBp" id="xXA-fz-tbp"/>
                         <outlet property="pickerView" destination="yfC-Ge-QIv" id="g2f-uz-m2H"/>
@@ -359,7 +367,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="QsT-LX-ezE">
             <objects>
-                <tabBarController id="cGe-nS-6BZ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="cGe-nS-6BZ" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uqj-bo-TUr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

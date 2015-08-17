@@ -18,6 +18,7 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
     @IBOutlet weak var hiruView: UIButton!
     @IBOutlet weak var yoruView: UIButton!
     @IBOutlet weak var tourokuButton: UIBarButtonItem!
+    @IBOutlet weak var coverView: UIView!
     
     //どれが選択されているかを判断する
     private var flagSelect: Int! = 0
@@ -47,7 +48,11 @@ class InitialSettingViewController: UIViewController,UIPickerViewDelegate,UIPick
         
         //初期設定か判断
         if(udId != nil){
+            self.navigationController?.navigationBarHidden = true
+            coverView.backgroundColor = UIColor.whiteColor()
             self.performSegueWithIdentifier("toMainVC", sender: nil)
+        } else {
+            coverView.hidden = true
         }
         
         //初期状態で"朝"を選択している状態
