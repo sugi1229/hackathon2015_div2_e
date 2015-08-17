@@ -181,32 +181,64 @@ class birdHomeViewController: UIViewController {
                 birdImageView.frame = CGRect(x: 0,y: 0,width: 130,height: 130)
                 birdImageView.layer.position = CGPoint(x: birdImageViewPosition.x, y: birdImageViewPosition.y-30)
             }
-
                 
+            if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
+                switch adultBirds.last! {
+                    case 0:
+                        //sound
+                        var soundIdRing:SystemSoundID = 0
+                        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
+                        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                        AudioServicesPlaySystemSound(soundIdRing)
+                        return UIImage(named: "botton_inko.png")!
+                    case 1:
+                        //sound
+                        var soundIdRing:SystemSoundID = 0
+                        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
+                        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                        AudioServicesPlaySystemSound(soundIdRing)
+                        return UIImage(named: "kozakura_inko.png")!
+                    case 2:
+                        //sound
+                        var soundIdRing:SystemSoundID = 0
+                        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
+                        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                        AudioServicesPlaySystemSound(soundIdRing)
+                        return UIImage(named: "okame_inko.png")!
+                    case 3:
+                        //sound
+                        var soundIdRing:SystemSoundID = 0
+                        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
+                        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                        AudioServicesPlaySystemSound(soundIdRing)
+                        return UIImage(named: "sekisei_inko.png")!
+                    case 4:
+                        //sound
+                        var soundIdRing:SystemSoundID = 0
+                        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
+                        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                        AudioServicesPlaySystemSound(soundIdRing)
+                        return UIImage(named: "sekisei2_inko.png")!
+                    case 5:
+                        var soundIdRing:SystemSoundID = 0
+                        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound4", ofType:"wav")!)
+                        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                        AudioServicesPlaySystemSound(soundIdRing)
+                        return UIImage(named: "penguin.png")!
+                    default:
+                        //sound
+                        var soundIdRing:SystemSoundID = 0
+                        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
+                        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+                        AudioServicesPlaySystemSound(soundIdRing)
+                        return UIImage(named: "botton_inko.png")!
+                    }
+                } else {
                 //sound
                 var soundIdRing:SystemSoundID = 0
                 let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("sound1", ofType:"wav")!)
                 AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
                 AudioServicesPlaySystemSound(soundIdRing)
-                
-            if let adultBirds = userDefault.objectForKey("adultBirds") as? [Int] {
-                switch adultBirds.last! {
-                    case 0:
-                        return UIImage(named: "botton_inko.png")!
-                    case 1:
-                        return UIImage(named: "kozakura_inko.png")!
-                    case 2:
-                        return UIImage(named: "okame_inko.png")!
-                    case 3:
-                        return UIImage(named: "sekisei_inko.png")!
-                    case 4:
-                        return UIImage(named: "sekisei2_inko.png")!
-                    case 5:
-                        return UIImage(named: "penguin.png")!
-                    default:
-                        return UIImage(named: "botton_inko.png")!
-                    }
-                } else {
                     return UIImage(named: "botton_inko.png")!
                 }
             default:
@@ -245,7 +277,7 @@ class birdHomeViewController: UIViewController {
 
     func setAdultBirdImage(){
         let widthSize = Int(self.view.frame.size.width - 70)
-        let highSize = Int(self.view.frame.size.height - 110)
+        let highSize = Int(self.view.frame.size.height - 150)
         
         let x = arc4random_uniform(UInt32(widthSize))
         let y = arc4random_uniform(UInt32(highSize))
@@ -297,13 +329,11 @@ class birdHomeViewController: UIViewController {
         
         //super.viewDidAppear(1)
         
-        //onAnimateImage(myImageView,x: CGFloat(x), y: CGFloat(y))
+        onAnimateImage(myImageView,x: CGFloat(x), y: CGFloat(y))
     }
     
     //アニメーション
     //とりが動く
-    
-    /*
     func onAnimateImage(target: UIImageView,x: CGFloat,y: CGFloat){
         // 画面1pt進むのにかかる時間の計算
         let timePerSecond = 30.0 / view.bounds.size.width
@@ -317,19 +347,24 @@ class birdHomeViewController: UIViewController {
         UIImageView.transitionWithView(target, duration: NSTimeInterval( remainTime), options: .CurveLinear, animations: { () -> Void in
             
             // 画面右まで移動
-            target.frame.origin.x = widthLength - 50
+            let xMax = arc4random_uniform(UInt32(100));
+            target.frame = CGRectMake(CGFloat(240-xMax), target.frame.origin.y, 50, 50);
             
             }, completion: { _ in
                 
-                // 画面右まで行ったら、画面左に戻す
-                //target.frame.origin.x = target.bounds.size.width
-                
-                // 再度アニメーションを起動
-                self.onAnimateImage(target,x: x,y: y)
+                UIImageView.transitionWithView(target, duration: NSTimeInterval( remainTime), options: .CurveLinear, animations: { () -> Void in
+                    
+                    // 画面右まで移動
+                    let xMin = arc4random_uniform(UInt32(100));
+                    target.frame = CGRectMake(CGFloat(10+xMin), target.frame.origin.y, 50, 50);
+                    
+                    }, completion: { _ in
+                        
+                        // 再度アニメーションを起動
+                        self.onAnimateImage(target,x: x,y: y)
+                })
         })
     }
-*/
-    
 
     @IBAction func didPushCameraButton(sender: AnyObject) {
         showCameraView()
