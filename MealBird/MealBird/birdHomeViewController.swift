@@ -33,6 +33,8 @@ class birdHomeViewController: UIViewController {
     private var myImage: UIImage!
     private var myValue: Int!
     
+    private var nowTime: Int! = 0
+    
     let userDefault = NSUserDefaults.standardUserDefaults()
     
     
@@ -214,25 +216,42 @@ class birdHomeViewController: UIViewController {
             },
             completion: nil
         )
+        
+        //super.viewDidAppear(1)
+        
+        //onAnimateImage(myImageView,x: CGFloat(x), y: CGFloat(y))
     }
     
     //アニメーション
     //とりが動く
-    func onImageAnimation(){
-        for imageView in myImageViewArray {
-            UIImageView.animateWithDuration(0.8,delay:0.2,
-                options:UIViewAnimationOptions.CurveEaseOut,
-                animations: {() -> Void in
-                    //imageView.transform = CGAffineTransformMakeScale(2.0, 2.0)
-                    //imageView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                    imageView.center = CGPointMake(50, 50)
-                },
-                completion: nil
-            )
+    
+    /*
+    func onAnimateImage(target: UIImageView,x: CGFloat,y: CGFloat){
+        // 画面1pt進むのにかかる時間の計算
+        let timePerSecond = 30.0 / view.bounds.size.width
+        
+        let widthLength = self.view.bounds.width
+        
+        // 画像の位置から画面右までにかかる時間の計算
+        //let remainTime = (view.bounds.size.width - target.frame.origin.x) * timePerSecond
+        let remainTime = arc4random_uniform(UInt32(5))
+        // アニメーション
+        UIImageView.transitionWithView(target, duration: NSTimeInterval( remainTime), options: .CurveLinear, animations: { () -> Void in
             
-        }
+            // 画面右まで移動
+            target.frame.origin.x = widthLength - 50
+            
+            }, completion: { _ in
+                
+                // 画面右まで行ったら、画面左に戻す
+                //target.frame.origin.x = target.bounds.size.width
+                
+                // 再度アニメーションを起動
+                self.onAnimateImage(target,x: x,y: y)
+        })
     }
-
+*/
+    
 
     @IBAction func didPushCameraButton(sender: AnyObject) {
         hiddenHomeView()
@@ -309,6 +328,7 @@ class birdHomeViewController: UIViewController {
         cameraMessageLabel.backgroundColor = UIColor.lightTextColor()
         cameraMessageLabel.layer.masksToBounds = true
         cameraMessageLabel.layer.cornerRadius = 10.0
+        //cameraMessageLabel.font = UIFont.systemFontOfSize(7)
         cameraMessageLabel.layer.position = CGPoint(x: self.view.frame.size.width/2, y: 50)
         cameraMessageLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(cameraMessageLabel)
@@ -318,13 +338,29 @@ class birdHomeViewController: UIViewController {
         let yoruTime = userDefault.objectForKey("yoru") as! String
         
         if isMealTime(asaTime) {
-             cameraMessageLabel.text = "いまは朝食の時間です"
+             nowTime = 0
+             cameraMessageLabel.text = "いまは朝食の時間です (" + asaTime + ")"
         } else if isMealTime(hiruTime) {
-             cameraMessageLabel.text = "いまは昼食の時間です"
+             cameraMessageLabel.text = "いまは昼食の時間です (" + hiruTime + ")"
         } else if isMealTime(yoruTime) {
-             cameraMessageLabel.text = "いまは夕食の時間です"
+             cameraMessageLabel.text = "いまは夕食の時間です (" + yoruTime + ")"
         } else {
-             cameraMessageLabel.text = "いまはごはんの時間ではありません"
+            switch(nowTime){
+            case 1:
+                cameraMessageLabel.text = "つぎは夕食です(" + yoruTime + ")"
+                break;
+            case 2:
+                cameraMessageLabel.text = "つぎは昼食です(" + hiruTime + ")"
+                break;
+            case 3:
+                cameraMessageLabel.text = "つぎは朝食です(" + asaTime + ")"
+                break;
+            default:
+                cameraMessageLabel.text = "いまはごはんの時間ではありません"
+                break;
+            }
+            //初期化
+            nowTime = 0
         }
     }
     
@@ -341,6 +377,12 @@ class birdHomeViewController: UIViewController {
         let startHour = starts[0].toInt()!
         let endHour = ends[0].toInt()!
         let nowHour = now.toInt()!
+        
+        //nowTime = startHour - nowHour
+        //if (nowTime > 0){
+        if(0<(startHour-nowHour)){
+            nowTime = nowTime + 1
+        }
        
         if startHour <= nowHour && nowHour < endHour {
             return true
