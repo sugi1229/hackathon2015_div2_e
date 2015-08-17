@@ -34,9 +34,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
 
         if let photo = photos[indexPath.item] as? Photo {
             let image = UIImage(data: photo.image)
-            cell.indicator.startAnimating()
-            cell.indicator.hidden = false
-            cell.imageView.image = image!
+            cell.setImage(image!)
         }
         return cell
     }

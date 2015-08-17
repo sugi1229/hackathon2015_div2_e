@@ -15,6 +15,18 @@ class PhotoAlbumCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         self.imageView.transform = CGAffineTransformMakeRotation(CGFloat(90.0 * M_PI / 180))
+    
+    }
+    
+    func setImage(image:UIImage) {
+        self.indicator.startAnimating()
+        self.indicator.hidden = false
+        let semaphore = dispatch_semaphore_create(0)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+            self.imageView.image = image
+            dispatch_semaphore_signal(semaphore)
+        })
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
     }
 
 }

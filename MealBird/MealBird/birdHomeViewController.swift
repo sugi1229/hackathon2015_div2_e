@@ -51,7 +51,35 @@ class birdHomeViewController: UIViewController {
         
         hiddenPhotoPreview()
         showCameraView()
-       
+        
+        let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeEvent:", userInfo: nil, repeats: true)
+        if let isEat = userDefault.objectForKey("isEat") as? Bool {
+            println("isEat")
+        } else {
+            userDefault.setObject(false, forKey: "isEat")
+        }
+    }
+    
+    func timeEvent(timer:NSTimer) {
+        let asaTime = userDefault.objectForKey("asa") as! String
+        let hiruTime = userDefault.objectForKey("hiru") as! String
+        let yoruTime = userDefault.objectForKey("yoru") as! String
+        
+        resetIsEat(asaTime)
+        resetIsEat(hiruTime)
+        resetIsEat(yoruTime)
+    }
+    
+    func resetIsEat(time:String) {
+        let times = time.componentsSeparatedByString("~ ")
+        let ends = times[1]
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        dateFormatter.dateFormat = "H:mm"
+        let now = dateFormatter.stringFromDate(NSDate())
+        if ends == now {
+            userDefault.setObject(false, forKey: "isEat")
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,6 +90,8 @@ class birdHomeViewController: UIViewController {
         setupCameraMessageLabel()
         setupMessageLabel()
     }
+
+    
 
     func setupMessageLabel() {
         if let count = userDefault.objectForKey("count") as? Int {
@@ -275,8 +305,9 @@ class birdHomeViewController: UIViewController {
     
 
     @IBAction func didPushCameraButton(sender: AnyObject) {
-        hiddenHomeView()
         showCameraView()
+        hiddenHomeView()
+        self.view.addSubview(cameraMessageLabel)
     }
 
 //Camera
@@ -358,12 +389,16 @@ class birdHomeViewController: UIViewController {
         let hiruTime = userDefault.objectForKey("hiru") as! String
         let yoruTime = userDefault.objectForKey("yoru") as! String
         
-        if isMealTime(asaTime) {
+        var isEat = false
+        if let b = userDefault.objectForKey("isEat") as? Bool {
+            isEat = b
+        }
+        if isMealTime(asaTime) && !isEat {
              nowTime = 0
              cameraMessageLabel.text = "いまは朝食の時間です (" + asaTime + ")"
-        } else if isMealTime(hiruTime) {
+        } else if isMealTime(hiruTime) && !isEat {
              cameraMessageLabel.text = "いまは昼食の時間です (" + hiruTime + ")"
-        } else if isMealTime(yoruTime) {
+        } else if isMealTime(yoruTime) && !isEat {
              cameraMessageLabel.text = "いまは夕食の時間です (" + yoruTime + ")"
         } else {
             switch(nowTime){
@@ -496,7 +531,8 @@ class birdHomeViewController: UIViewController {
         let asaTime = userDefault.objectForKey("asa") as! String
         let hiruTime = userDefault.objectForKey("hiru") as! String
         let yoruTime = userDefault.objectForKey("yoru") as! String
-        if isMealTime(asaTime) || isMealTime(hiruTime) || isMealTime(yoruTime){
+        let isEat = userDefault.objectForKey("isEat") as! Bool
+        if (isMealTime(asaTime) || isMealTime(hiruTime) || isMealTime(yoruTime)) && !isEat {
             eatPhoto()
         }
     }
@@ -512,6 +548,7 @@ class birdHomeViewController: UIViewController {
     
     func eatPhoto() {
         self.view.addSubview(mealPhoto)
+        userDefault.setObject(true, forKey: "isEat")
         UIView.animateWithDuration(2.5, animations: { () -> Void in
             let tabbarHeight = self.tabBarController?.tabBar.frame.size.height;
             let scale = CGAffineTransformMakeScale(0.01, 0.01)
