@@ -265,6 +265,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atg-wa-2cd">
+                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didpushbutton:" destination="5gS-Tq-I8I" eventType="touchUpInside" id="KZj-2r-VjA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -275,7 +284,9 @@
                             <constraint firstItem="ELD-08-cGT" firstAttribute="leading" secondItem="Oh2-cm-oXw" secondAttribute="leading" id="YLT-wQ-Wxe"/>
                             <constraint firstItem="ELD-08-cGT" firstAttribute="top" secondItem="Oh2-cm-oXw" secondAttribute="topMargin" id="ljO-Q6-q19"/>
                             <constraint firstItem="yHe-I5-lUL" firstAttribute="centerY" secondItem="E84-7L-3Fg" secondAttribute="centerY" id="mnk-4k-UkM"/>
+                            <constraint firstAttribute="centerY" secondItem="atg-wa-2cd" secondAttribute="centerY" id="nHq-0T-F91"/>
                             <constraint firstAttribute="trailing" secondItem="yHe-I5-lUL" secondAttribute="trailing" constant="20" id="ws9-Tu-x7l"/>
+                            <constraint firstAttribute="centerX" secondItem="atg-wa-2cd" secondAttribute="centerX" id="zvr-wn-YJc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home.png" id="4T4-re-27b"/>
