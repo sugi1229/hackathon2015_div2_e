@@ -313,6 +313,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iIb-dg-UXr">
                                                     <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SUT-Te-7Z3">
+                                                    <rect key="frame" x="22" y="23" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -320,10 +323,13 @@
                                             <constraint firstAttribute="bottom" secondItem="iIb-dg-UXr" secondAttribute="bottom" id="2r4-kN-2W8"/>
                                             <constraint firstItem="iIb-dg-UXr" firstAttribute="leading" secondItem="F5u-IS-eFR" secondAttribute="leading" id="J61-7k-Dvi"/>
                                             <constraint firstAttribute="trailing" secondItem="iIb-dg-UXr" secondAttribute="trailing" id="N7G-iM-JIG"/>
+                                            <constraint firstAttribute="centerX" secondItem="SUT-Te-7Z3" secondAttribute="centerX" id="NKM-MM-XbC"/>
+                                            <constraint firstAttribute="centerY" secondItem="SUT-Te-7Z3" secondAttribute="centerY" id="NU2-3z-dvX"/>
                                             <constraint firstItem="iIb-dg-UXr" firstAttribute="top" secondItem="F5u-IS-eFR" secondAttribute="top" id="bN5-Sj-Oky"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="iIb-dg-UXr" id="TFv-rB-f6k"/>
+                                            <outlet property="indicator" destination="SUT-Te-7Z3" id="gHG-d9-4qG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
